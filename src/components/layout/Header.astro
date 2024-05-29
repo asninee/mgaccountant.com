@@ -1,7 +1,7 @@
 ---
 import { buttonVariants } from '../ui/button'
 import NavMenu from './Navigation'
-import SheetDemo from './Sheet'
+import NavSheet from './Sheet'
 ---
 
 <header class='transition'>
@@ -28,11 +28,11 @@ import SheetDemo from './Sheet'
     <NavMenu client:idle />
 
     <div class='flex gap-5'>
-      <a href='/contact' class={buttonVariants({ variant: 'outline' })}
+      <a href='/contact' class={buttonVariants({ variant: 'default' })}
         >Get in touch</a
       >
 
-      <SheetDemo client:idle />
+      <NavSheet client:idle />
     </div>
   </div>
 </header>
