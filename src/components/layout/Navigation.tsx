@@ -12,8 +12,8 @@ import {
 
 const components: { title: string; href: string; description: string }[] = [
   {
-    title: 'Services for business',
-    href: '/services/business',
+    title: 'Services for businesses',
+    href: '/services/businesses',
     description:
       'Overview of services provided for businesses, with tiered plans outlined.',
   },

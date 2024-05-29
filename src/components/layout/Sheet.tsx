@@ -22,10 +22,10 @@ const NavSheet = () => {
             About Us
           </a>
           <a
-            href='/services/business'
+            href='/services/businesses'
             className='text-muted-foreground hover:text-foreground'
           >
-            Services for business
+            Services for businesses
           </a>
           <a
             href='/services/individuals'
