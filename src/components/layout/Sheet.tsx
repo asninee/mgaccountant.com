@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Icon } from '@iconify/react'
 
-const SheetDemo = () => {
+const NavSheet = () => {
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -45,4 +45,4 @@ const SheetDemo = () => {
   )
 }
 
-export default SheetDemo
+export default NavSheet
