@@ -89,13 +89,3 @@ const ListItem = React.forwardRef<
 })
 
 export default NavMenu
-
-// <!-- <div class='w-max top-20 left-12 hidden m-0'>
-//   {
-//     links.map(l => (
-//       <a href={l.href} class='block text-center py-2 '>
-//         {l.name}
-//       </a>
-//     ))
-//   }
-// </div> -->
