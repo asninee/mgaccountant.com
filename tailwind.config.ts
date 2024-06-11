@@ -1,9 +1,13 @@
 import type { Config } from 'tailwindcss'
+import defaultTheme from 'tailwindcss/defaultTheme'
 
 const config = {
   darkMode: 'selector',
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
+    fontFamily: {
+      serif: ['Playfair Display', ...defaultTheme.fontFamily.serif],
+    },
     container: {
       center: true,
       padding: '2rem',

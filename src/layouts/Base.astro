@@ -1,8 +1,6 @@
 ---
 import Head from '@/components/layout/Head.astro'
 import '@/styles/base.css'
-import '@fontsource/inter/latin-400.css'
-import '@fontsource/inter/latin-500.css'
 import Footer from '../components/layout/Footer.astro'
 import Header from '../components/layout/Header.astro'
 
@@ -31,6 +29,28 @@ const { title, description } = Astro.props
     <style is:global>
       [x-cloak] {
         display: none !important;
+      }
+
+      @font-face {
+        font-family: 'Playfair Display';
+        src: url('/fonts/Playfair500-subset.woff2') format('woff2');
+        font-display: swap;
+        font-weight: 500;
+      }
+
+      @font-face {
+        font-family: 'Playfair Display';
+        src: url('/fonts/Playfair600-subset.woff2') format('woff2');
+        font-display: swap;
+        font-weight: 600;
+      }
+
+      @font-face {
+        font-family: 'Playfair Display';
+        src: url('/fonts/Playfair900Italic-subset.woff2') format('woff2');
+        font-display: swap;
+        font-weight: 700;
+        font-style: italic, oblique;
       }
     </style>
   </body>
