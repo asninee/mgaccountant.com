@@ -1,0 +1,59 @@
+---
+import { Card, CardContent, CardFooter, CardTitle } from '../ui/card'
+
+const values = [
+  [
+    {
+      name: 'Mission',
+      description:
+        'To use understandable accounting, practical business advice with a hands-on approach to help our clients realise their goals and assist them to build better businesses.',
+    },
+    {
+      name: 'Teamwork',
+      description:
+        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione. ',
+    },
+  ],
+  [
+    {
+      name: 'Vision',
+      description:
+        'To work alongside our clients closely using our expertise to understand their needs and assisting them to interpret financial data so they can make the best decisions for themselves and their businesses.',
+    },
+    {
+      name: 'Respect',
+      description:
+        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+    },
+  ],
+]
+---
+
+<section class='py-16 sm:py-20'>
+  <div class='mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8'>
+    <div class='flex flex-col gap-8 lg:gap-12'>
+      <div class='grid gap-8 lg:grid-cols-2'>
+        {
+          values.map((column, index) => (
+            <div class:list={['space-y-8', index === 1 && 'lg:mt-16']}>
+              {column.map(value => (
+                <Card className='py-2 bg-cyan-400 text-white relative'>
+                  <CardContent>
+                    <p class='font-semibold font-serif md:text-xl md:mt-4 text-black bg-lime-400 p-2 rounded-md'>
+                      {value.description}
+                    </p>
+                  </CardContent>
+                  <CardFooter className='py-0'>
+                    <CardTitle className='md:text-xl mt-4 font-semibold'>
+                      {value.name}
+                    </CardTitle>
+                  </CardFooter>
+                </Card>
+              ))}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
