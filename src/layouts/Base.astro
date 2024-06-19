@@ -13,12 +13,12 @@ const { title, description } = Astro.props
 ---
 
 <!doctype html>
-<html lang='en' x-cloak x-data>
+<html lang='en'>
   <head>
     <Head title={title} description={description} />
   </head>
   <body
-    class='bg-primary-50 text-primary-950 dark:bg-primary-950 dark:text-primary-200 antialiased transition overflow-x-hidden max-w-container'
+    class='bg-primary-50 text-primary-950 antialiased transition overflow-x-hidden max-w-container'
   >
     <Header />
     <main>
@@ -33,24 +33,21 @@ const { title, description } = Astro.props
 
       @font-face {
         font-family: 'Playfair Display';
-        src: url('/fonts/Playfair500-subset.woff2') format('woff2');
-        font-display: swap;
-        font-weight: 500;
+        src:
+          url('/fonts/Playfair-subset.woff2')
+            format('woff2 supports variations'),
+          url('/fonts/Playfair-subset.woff2') format('woff2-variations');
+        font-weight: 400 900;
       }
 
       @font-face {
         font-family: 'Playfair Display';
-        src: url('/fonts/Playfair600-subset.woff2') format('woff2');
-        font-display: swap;
-        font-weight: 600;
-      }
-
-      @font-face {
-        font-family: 'Playfair Display';
-        src: url('/fonts/Playfair900Italic-subset.woff2') format('woff2');
-        font-display: swap;
-        font-weight: 700;
-        font-style: italic, oblique;
+        src:
+          url('/fonts/Playfair-Italic-subset.woff2')
+            format('woff2 supports variations'),
+          url('/fonts/Playfair-Italic-subset.woff2') format('woff2-variations');
+        font-weight: 400 900;
+        font-style: italic;
       }
     </style>
   </body>
