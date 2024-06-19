@@ -1,42 +1,43 @@
----
-const team = [
-  {
-    name: 'Floyd Lowe',
-    image: '/assets/team-1.webp',
-    job: 'Senior Designer',
-  },
-  {
-    name: 'Emma Dorsey',
-    image: '/assets/team-2.webp',
-    job: 'Principal Designer',
-  },
-  {
-    name: 'Emily Mitchell',
-    image: '/assets/team-3.webp',
-    job: 'Senior Developer',
-  },
-];
----
-
-<section class="py-16 sm:py-20">
-  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-    <div class="sm:space-8 space-y-12">
-      <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Meet our team</h2>
-      <ul role="list" class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {
-          team.map((item) => (
-            <li class="border-primary-900/10 dark:border-primary-300/10 rounded-3xl border px-6 py-8">
-              <div class="space-y-6">
-                <img class="mx-auto h-auto w-16 rounded-full" src={item.image} alt={item.name} />
-                <div class="text-center">
-                  <h3 class="text-lg font-medium">{item.name}</h3>
-                  <p class="text-primary-950/70 dark:text-primary-200/70 text-base">{item.job}</p>
-                </div>
-              </div>
-            </li>
-          ))
-        }
-      </ul>
+<section class='py-16 sm:py-24'>
+  <div class='mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8'>
+    <h2 class='text-3xl font-semibold font-serif tracking-tight md:text-4xl'>
+      Our Team
+    </h2>
+    <div class='flex flex-wrap items-center justify-between gap-28 py-32 px-4'>
+      <div class='flex flex-col gap-6 items-center'>
+        <div class='flex flex-col items-center gap-1'>
+          <h3 class='text-2xl font-serif tracking-tight md:text-3xl'>
+            Manesha Goncalves
+          </h3>
+          <h3 class='text-2xl font-serif tracking-tight md:text-3xl italic'>
+            Managing Director
+          </h3>
+        </div>
+        <a
+          href='mailto:manesha@mgaccountant.com'
+          class='focus-visible:outline-primary-950 font-semibold sm:text-md inline-flex items-center gap-1 rounded-md hover:underline focus-visible:outline focus-visible:outline-2'
+          >manesha@mgaccountant.com</a
+        >
+      </div>
+      <div class='flex flex-col gap-6 max-w-lg'>
+        <p class='text-base sm:text-md'>
+          Manesha is the firm's Managing Director, responsible for driving the
+          vision and strategy of the firm. Manesha's 10 years of experience
+          extends to working with clients in the businesses of IT, recruitment,
+          media, childcare, healthcare, construction, and retail.
+        </p>
+        <p class='text-base sm:text-md'>
+          Manesha's area of expertise is her ability to combine sound commercial
+          advice with tax planning for businesses. In the case of owner-managed
+          businesses, she is experienced in delivering the personal objectives
+          of the individuals involved and in responding to the specific
+          challenges of those who mix business with family life.
+        </p>
+        <p class='text-base sm:text-md'>
+          Outside of work, Manesha enjoys spending time with her two children,
+          friends and family.
+        </p>
+      </div>
     </div>
   </div>
 </section>
