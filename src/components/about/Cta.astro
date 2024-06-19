@@ -1,0 +1,29 @@
+---
+import { Icon } from 'astro-icon/components'
+import { buttonVariants } from '../ui/button'
+---
+
+<section class='py-6 sm:py-8'>
+  <div class='mx-auto max-w-2xl text-center lg:max-w-7xl lg:px-8'>
+    <div
+      class='bg-primary-500/10 flex flex-col items-center gap-10 rounded-3xl px-5 py-16 sm:gap-12'
+    >
+      <h2
+        class='mx-auto max-w-xl text-3xl font-serif font-semibold tracking-tight sm:text-4xl'
+      >
+        On-demand Accounting that starts <strong class='text-purple-700 italic'
+          >with you</strong
+        >.
+      </h2>
+      <a
+        href='/contact'
+        class={buttonVariants({ variant: 'default', size: 'lg' })}
+      >
+        <div class='flex items-center gap-4'>
+          <span class='text-lg font-semibold'>Get in touch</span>
+          <Icon name='lucide:arrow-right' class='h-6 w-6' />
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
