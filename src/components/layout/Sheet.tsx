@@ -33,12 +33,12 @@ const NavSheet = () => {
           >
             Services for individuals
           </a>
-          <a
+          {/* <a
             href='/news'
             className='text-muted-foreground hover:text-foreground'
           >
             News
-          </a>
+          </a> */}
         </nav>
       </SheetContent>
     </Sheet>

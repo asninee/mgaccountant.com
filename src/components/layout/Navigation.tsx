@@ -51,13 +51,13 @@ const NavMenu = () => {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
-        <NavigationMenuItem>
+        {/* <NavigationMenuItem>
           <a href='/news'>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               News
             </NavigationMenuLink>
           </a>
-        </NavigationMenuItem>
+        </NavigationMenuItem> */}
       </NavigationMenuList>
     </NavigationMenu>
   )
