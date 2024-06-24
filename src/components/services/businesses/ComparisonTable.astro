@@ -1,0 +1,814 @@
+---
+import { Icon } from 'astro-icon/components'
+
+const plans = [
+  {
+    name: 'The Starter (Basic Non-Trading Account)',
+    categories: [
+      {
+        name: 'Everyday Accounting',
+        features: [
+          {
+            name: "Company's Formation and Restructuring",
+            check: true,
+          },
+          {
+            name: 'End of Year Statutory Accounts',
+            check: true,
+          },
+          {
+            name: 'Annual Confirmation Statement',
+            check: false,
+          },
+          {
+            name: 'CIS Returns',
+            check: false,
+          },
+          {
+            name: 'VAT Returns',
+            check: false,
+          },
+          {
+            name: 'References - Mortgages, Visas etc.',
+            check: false,
+          },
+          {
+            name: 'Registered Office Address',
+            check: false,
+          },
+        ],
+      },
+      {
+        name: 'Taxes',
+        features: [
+          {
+            name: 'Corporate Tax Return',
+            check: true,
+          },
+          {
+            name: 'Basic Tax Planning',
+            check: false,
+          },
+          {
+            name: 'Self-Assessment Tax Return',
+            check: false,
+          },
+          {
+            name: 'Personal & Company Tax Return',
+            check: false,
+          },
+        ],
+      },
+      {
+        name: 'Payroll',
+        features: [
+          {
+            name: '1 Director/Employee Payroll',
+            check: false,
+          },
+          {
+            name: 'Payroll for up to 3 Employees',
+            check: false,
+          },
+          {
+            name: 'Payroll for up to 10 Employees',
+            check: false,
+          },
+        ],
+      },
+      {
+        name: 'Compliance',
+        features: [
+          {
+            name: 'Auto-Enrolment Compliance',
+            check: false,
+          },
+          {
+            name: 'Making Tax Digital (MTD) Compliance',
+            check: false,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: 'The Starter',
+    categories: [
+      {
+        name: 'Everyday Accounting',
+        features: [
+          {
+            name: "Company's Formation and Restructuring",
+            check: true,
+          },
+          {
+            name: 'End of Year Statutory Accounts',
+            check: true,
+          },
+          {
+            name: 'Annual Confirmation Statement',
+            check: true,
+          },
+          {
+            name: 'CIS Returns',
+            check: false,
+          },
+          {
+            name: 'VAT Returns',
+            check: false,
+          },
+          {
+            name: 'References - Mortgages, Visas etc.',
+            check: false,
+          },
+          {
+            name: 'Registered Office Address',
+            check: false,
+          },
+        ],
+      },
+      {
+        name: 'Taxes',
+        features: [
+          {
+            name: 'Corporate Tax Return',
+            check: true,
+          },
+          {
+            name: 'Basic Tax Planning',
+            check: true,
+          },
+          {
+            name: 'Self-Assessment Tax Return',
+            check: true,
+          },
+          {
+            name: 'Personal & Company Tax Return',
+            check: false,
+          },
+        ],
+      },
+      {
+        name: 'Payroll',
+        features: [
+          {
+            name: '1 Director/Employee Payroll',
+            check: true,
+          },
+          {
+            name: 'Payroll for up to 3 Employees',
+            check: false,
+          },
+          {
+            name: 'Payroll for up to 10 Employees',
+            check: false,
+          },
+        ],
+      },
+      {
+        name: 'Compliance',
+        features: [
+          {
+            name: 'Auto-Enrolment Compliance',
+            check: false,
+          },
+          {
+            name: 'Making Tax Digital (MTD) Compliance',
+            check: false,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: 'The Primary',
+    categories: [
+      {
+        name: 'Everyday Accounting',
+        features: [
+          {
+            name: "Company's Formation and Restructuring",
+            check: true,
+          },
+          {
+            name: 'End of Year Statutory Accounts',
+            check: true,
+          },
+          {
+            name: 'Annual Confirmation Statement',
+            check: true,
+          },
+          {
+            name: 'CIS Returns',
+            check: true,
+          },
+          {
+            name: 'VAT Returns',
+            check: true,
+          },
+          {
+            name: 'References - Mortgages, Visas etc.',
+            check: true,
+          },
+          {
+            name: 'Registered Office Address',
+            check: false,
+          },
+        ],
+      },
+      {
+        name: 'Taxes',
+        features: [
+          {
+            name: 'Corporate Tax Return',
+            check: true,
+          },
+          {
+            name: 'Basic Tax Planning',
+            check: true,
+          },
+          {
+            name: 'Self-Assessment Tax Return',
+            check: true,
+          },
+          {
+            name: 'Personal & Company Tax Return',
+            check: true,
+          },
+        ],
+      },
+      {
+        name: 'Payroll',
+        features: [
+          {
+            name: '1 Director/Employee Payroll',
+            check: true,
+          },
+          {
+            name: 'Payroll for up to 3 Employees',
+            check: true,
+          },
+          {
+            name: 'Payroll for up to 10 Employees',
+            check: false,
+          },
+        ],
+      },
+      {
+        name: 'Compliance',
+        features: [
+          {
+            name: 'Auto-Enrolment Compliance',
+            check: true,
+          },
+          {
+            name: 'Making Tax Digital (MTD) Compliance',
+            check: true,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: 'The Works',
+    categories: [
+      {
+        name: 'Everyday Accounting',
+        features: [
+          {
+            name: "Company's Formation and Restructuring",
+            check: true,
+          },
+          {
+            name: 'End of Year Statutory Accounts',
+            check: true,
+          },
+          {
+            name: 'Annual Confirmation Statement',
+            check: true,
+          },
+          {
+            name: 'CIS Returns',
+            check: true,
+          },
+          {
+            name: 'VAT Returns',
+            check: true,
+          },
+          {
+            name: 'References - Mortgages, Visas etc.',
+            check: true,
+          },
+          {
+            name: 'Registered Office Address',
+            check: true,
+          },
+        ],
+      },
+      {
+        name: 'Taxes',
+        features: [
+          {
+            name: 'Corporate Tax Return',
+            check: true,
+          },
+          {
+            name: 'Basic Tax Planning',
+            check: true,
+          },
+          {
+            name: 'Self-Assessment Tax Return',
+            check: true,
+          },
+          {
+            name: 'Personal & Company Tax Return',
+            check: true,
+          },
+        ],
+      },
+      {
+        name: 'Payroll',
+        features: [
+          {
+            name: '1 Director/Employee Payroll',
+            check: true,
+          },
+          {
+            name: 'Payroll for up to 3 Employees',
+            check: true,
+          },
+          {
+            name: 'Payroll for up to 10 Employees',
+            check: true,
+          },
+        ],
+      },
+      {
+        name: 'Compliance',
+        features: [
+          {
+            name: 'Auto-Enrolment Compliance',
+            check: true,
+          },
+          {
+            name: 'Making Tax Digital (MTD) Compliance',
+            check: true,
+          },
+        ],
+      },
+    ],
+  },
+]
+
+const categories = [
+  {
+    name: 'Everyday Accounting',
+    rows: [
+      {
+        name: "Company's Formation and Business Structuring",
+        data: [
+          {
+            check: true,
+          },
+          {
+            check: true,
+          },
+          {
+            check: true,
+          },
+          {
+            check: true,
+          },
+        ],
+      },
+      {
+        name: 'End of Year Statutory Accounts',
+        data: [
+          {
+            check: true,
+          },
+          {
+            check: true,
+          },
+          {
+            check: true,
+          },
+          {
+            check: true,
+          },
+        ],
+      },
+      {
+        name: 'Annual Confirmation Statement',
+        data: [
+          {
+            check: false,
+          },
+          {
+            check: true,
+          },
+          {
+            check: true,
+          },
+          {
+            check: true,
+          },
+        ],
+      },
+      {
+        name: 'CIS Returns',
+        data: [
+          {
+            check: false,
+          },
+          {
+            check: false,
+          },
+          {
+            check: true,
+          },
+          {
+            check: true,
+          },
+        ],
+      },
+      {
+        name: 'VAT Returns',
+        data: [
+          {
+            check: false,
+          },
+          {
+            check: false,
+          },
+          {
+            check: true,
+          },
+          {
+            check: true,
+          },
+        ],
+      },
+      {
+        name: 'References - Mortgages, Visas etc.',
+        data: [
+          {
+            check: false,
+          },
+          {
+            check: false,
+          },
+          {
+            check: true,
+          },
+          {
+            check: true,
+          },
+        ],
+      },
+      {
+        name: 'Registered Office Address',
+        data: [
+          {
+            check: false,
+          },
+          {
+            check: false,
+          },
+          {
+            check: false,
+          },
+          {
+            check: true,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: 'Taxes',
+    rows: [
+      {
+        name: 'Corporation Tax Return',
+        data: [
+          {
+            check: true,
+          },
+          {
+            check: true,
+          },
+          {
+            check: true,
+          },
+          {
+            check: true,
+          },
+        ],
+      },
+      {
+        name: 'Basic Tax Planning',
+        data: [
+          {
+            check: false,
+          },
+          {
+            check: true,
+          },
+          {
+            check: true,
+          },
+          {
+            check: true,
+          },
+        ],
+      },
+      {
+        name: 'Self-Assessment Tax Return',
+        data: [
+          {
+            check: false,
+          },
+          {
+            check: true,
+          },
+          {
+            check: true,
+          },
+          {
+            check: true,
+          },
+        ],
+      },
+      {
+        name: 'Personal & Company Tax Planning',
+        data: [
+          {
+            check: false,
+          },
+          {
+            check: false,
+          },
+          {
+            check: true,
+          },
+          {
+            check: true,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: 'Payroll',
+    rows: [
+      {
+        name: '1 Director/Employee Payroll',
+        data: [
+          {
+            check: false,
+          },
+          {
+            check: true,
+          },
+          {
+            check: true,
+          },
+          {
+            check: true,
+          },
+        ],
+      },
+      {
+        name: 'Payroll for up to 3 Employees',
+        data: [
+          {
+            check: false,
+          },
+          {
+            check: false,
+          },
+          {
+            check: true,
+          },
+          {
+            check: true,
+          },
+        ],
+      },
+      {
+        name: 'Payroll for up to 3 Employees',
+        data: [
+          {
+            check: false,
+          },
+          {
+            check: false,
+          },
+          {
+            check: false,
+          },
+          {
+            check: true,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: 'Compliance',
+    rows: [
+      {
+        name: 'Auto-Enrolment Compliance',
+        data: [
+          {
+            check: false,
+          },
+          {
+            check: false,
+          },
+          {
+            check: true,
+          },
+          {
+            check: true,
+          },
+        ],
+      },
+      {
+        name: 'Making Tax Digital (MTD) Compliance',
+        data: [
+          {
+            check: false,
+          },
+          {
+            check: false,
+          },
+          {
+            check: true,
+          },
+          {
+            check: true,
+          },
+        ],
+      },
+    ],
+  },
+]
+---
+
+<section id='ctable' class='py-16 sm:py-20'>
+  <div class='mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8'>
+    <!-- Comparison table -->
+    <div>
+      <div class='text-center mb-16 lg:mb-20'>
+        <h3 class='text-2xl font-semibold'>
+          <span class='px-6 py-3 text-white bg-purple-700 rounded-2xl'
+            >Limited Companies</span
+          >
+        </h3>
+      </div>
+
+      <!-- xs to lg -->
+      <div class='space-y-24 lg:hidden'>
+        {
+          plans.map(plan => (
+            <section>
+              <div class='px-4 mb-4'>
+                <h2 class='text-lg leading-6 font-semibold text-gray-800'>
+                  {plan.name}
+                </h2>
+              </div>
+              {plan.categories.map(category => (
+                <table class='w-full'>
+                  <caption class='pt-8 border-t border-gray-200 py-3 px-4 text-sm font-bold text-white text-start'>
+                    <span class='bg-cyan-400 -mx-6 py-2 px-4 rounded-xl'>
+                      {category.name}
+                    </span>
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th class='sr-only' scope='col'>
+                        Feature
+                      </th>
+                      <th class='sr-only' scope='col'>
+                        Included
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class='divide-y divide-gray-200'>
+                    {category.features.map(feature => (
+                      <tr>
+                        <th
+                          class='py-5 px-4 text-sm font-normal text-start whitespace-nowrap'
+                          scope='row'
+                        >
+                          {feature.name}
+                        </th>
+                        <td class='py-5 pe-4'>
+                          {feature.check ? (
+                            <Icon
+                              name='lucide:check'
+                              class='flex-shrink-0 ms-auto size-5'
+                            />
+                          ) : (
+                            <Icon
+                              name='lucide:minus'
+                              class='flex-shrink-0 ms-auto size-5 text-gray-400'
+                            />
+                          )}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              ))}
+            </section>
+          ))
+        }
+      </div>
+
+      <!-- lg+ -->
+      <div class='hidden lg:block'>
+        <table class='w-full h-px'>
+          <caption class='sr-only'>Accounting plan comparison</caption>
+          <thead class='sticky top-0 inset-x-0 bg-white'>
+            <tr>
+              <th
+                class='py-4 ps-6 pe-6 text-sm font-semibold text-gray-800 text-start'
+                scope='col'
+              >
+                <span class='sr-only'>Feature by</span>
+              </th>
+
+              <th
+                class='w-1/4 py-4 px-6 text-lg leading-6 font-semibold text-gray-800 text-center'
+                scope='col'>The Starter (Basic Non-Trading Account)</th
+              >
+              <th
+                class='w-1/4 py-4 px-6 text-lg leading-6 font-semibold text-gray-800 text-center'
+                scope='col'>The Starter</th
+              >
+              <th
+                class='w-1/4 py-4 px-6 text-lg leading-6 font-semibold text-gray-800 text-center'
+                scope='col'>The Primary</th
+              >
+              <th
+                class='w-1/4 py-4 px-6 text-lg leading-6 font-semibold text-gray-800 text-center'
+                scope='col'>The Works</th
+              >
+            </tr>
+          </thead>
+          <tbody class='border-t border-gray-200'>
+            {
+              categories.map(category => (
+                <>
+                  <tr>
+                    <th
+                      class='pt-8 pb-4 ps-6 font-bold text-white text-start'
+                      colspan='5'
+                      scope='colgroup'
+                    >
+                      <span class='bg-cyan-400 -mx-6 py-2 px-4 rounded-xl'>
+                        {category.name}
+                      </span>
+                    </th>
+                  </tr>
+                  <>
+                    {category.rows.map(row => (
+                      <tr class='border-b border-gray-200 '>
+                        <th
+                          class='py-5 ps-6 pe-6 text-sm font-normal text-gray-600 text-start whitespace-nowrap'
+                          scope='row'
+                        >
+                          {row.name}
+                        </th>
+
+                        {row.data.map(entry => (
+                          <td class='py-5 px-6'>
+                            {entry.check ? (
+                              <Icon
+                                name='lucide:check'
+                                class='flex-shrink-0 mx-auto size-5'
+                              />
+                            ) : (
+                              <Icon
+                                name='lucide:minus'
+                                class='flex-shrink-0 mx-auto size-5 text-gray-400'
+                              />
+                            )}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </>
+                </>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <!-- End lg+ -->
+    </div>
+    <!-- End Comparison table -->
+  </div>
+</section>
