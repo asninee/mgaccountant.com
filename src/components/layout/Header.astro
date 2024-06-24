@@ -16,10 +16,8 @@ import NavSheet from './Sheet'
       >
         <span class='sr-only'>mgaccountant</span>
         <img
-          class='h-8 w-auto'
-          width='65'
-          height='40'
-          src='/assets/logo.svg'
+          class='h-12 md:h-16 w-auto'
+          src='/assets/logo.png'
           alt='mgaccountant logo'
         />
       </a>
@@ -29,7 +27,7 @@ import NavSheet from './Sheet'
 
     <div class='flex gap-5'>
       <a href='/contact' class={buttonVariants({ variant: 'default' })}
-        >Get in touch</a
+        ><span class='text-lg font-semibold'>Get in touch</span></a
       >
 
       <NavSheet client:idle />
