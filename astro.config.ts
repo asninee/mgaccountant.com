@@ -1,3 +1,4 @@
+import cloudflare from '@astrojs/cloudflare'
 import react from '@astrojs/react'
 import tailwind from '@astrojs/tailwind'
 import icon from 'astro-icon'
@@ -13,4 +14,5 @@ export default defineConfig({
     react(),
     icon(),
   ],
+  adapter: cloudflare(),
 })
