@@ -38,6 +38,7 @@ const { title, description } = Astro.props
             format('woff2 supports variations'),
           url('/fonts/Playfair-subset.woff2') format('woff2-variations');
         font-weight: 400 900;
+        font-display: swap;
       }
 
       @font-face {
@@ -48,6 +49,7 @@ const { title, description } = Astro.props
           url('/fonts/Playfair-Italic-subset.woff2') format('woff2-variations');
         font-weight: 400 900;
         font-style: italic;
+        font-display: swap;
       }
     </style>
   </body>
