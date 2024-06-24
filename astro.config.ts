@@ -6,6 +6,8 @@ import { defineConfig } from 'astro/config'
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://mgaccountant.com',
+  adapter: cloudflare(),
   output: 'hybrid',
   integrations: [
     tailwind({
@@ -14,5 +16,4 @@ export default defineConfig({
     react(),
     icon(),
   ],
-  adapter: cloudflare(),
 })
