@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button'
+import { Button, buttonVariants } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Icon } from '@iconify/react'
 
@@ -39,6 +39,9 @@ const NavSheet = () => {
           >
             News
           </a> */}
+          <a href='/contact' className={buttonVariants({ variant: 'default' })}>
+            <span className='text-lg font-semibold'>Get in touch</span>
+          </a>
         </nav>
       </SheetContent>
     </Sheet>

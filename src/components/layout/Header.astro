@@ -28,9 +28,11 @@ import NavSheet from './Sheet'
     <NavMenu client:idle />
 
     <div class='flex gap-5'>
-      <a href='/contact' class={buttonVariants({ variant: 'default' })}
-        ><span class='text-lg font-semibold'>Get in touch</span></a
-      >
+      <div class='hidden md:flex'>
+        <a href='/contact' class={buttonVariants({ variant: 'default' })}
+          ><span class='text-lg font-semibold'>Get in touch</span></a
+        >
+      </div>
 
       <NavSheet client:idle />
     </div>
