@@ -23,14 +23,14 @@ import NavSheet from './Sheet'
       </a>
     </div>
 
-    <NavMenu client:load />
+    <NavMenu client:idle />
 
     <div class='flex gap-5'>
       <a href='/contact' class={buttonVariants({ variant: 'default' })}
         ><span class='text-lg font-semibold'>Get in touch</span></a
       >
 
-      <NavSheet client:load />
+      <NavSheet client:idle />
     </div>
   </div>
 </header>
