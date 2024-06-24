@@ -1,5 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components'
+import { Image } from 'astro:assets'
+import heroImg from '../../../public/assets/hero.webp'
 import { buttonVariants } from '../ui/button'
 ---
 
@@ -29,12 +31,10 @@ import { buttonVariants } from '../ui/button'
           </div>
         </a>
       </div>
-      <img
+      <Image
+        src={heroImg}
+        alt='Person pointing at a tablet, guiding someone else'
         class='h-auto w-full rounded-3xl'
-        width='640'
-        height='640'
-        src='/assets/hero.webp'
-        alt='Hero picture'
       />
     </div>
   </div>

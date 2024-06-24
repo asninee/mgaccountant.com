@@ -1,4 +1,8 @@
 ---
+import { Image } from 'astro:assets'
+import ifacImg from '../../../public/assets/ifac.webp'
+import logoImg from '../../../public/assets/logo.webp'
+
 const bottomLinks = [
   {
     header: 'Links',
@@ -48,10 +52,10 @@ const bottomLinks = [
               class='focus-visible:outline-primary-950 rounded-md focus-visible:outline focus-visible:outline-2'
             >
               <span class='sr-only'>mgaccountant</span>
-              <img
-                class='h-20 w-auto'
-                src='/assets/logo.webp'
+              <Image
+                src={logoImg}
                 alt='mgaccountant logo'
+                class='h-20 w-auto'
               />
             </a>
           </div>
@@ -85,10 +89,10 @@ const bottomLinks = [
               class='focus-visible:outline-primary-950 rounded-md focus-visible:outline focus-visible:outline-2'
             >
               <span class='sr-only'>IFAC</span>
-              <img
+              <Image
+                src={ifacImg}
+                alt='IFAC (Internation Federation of Accountants) logo'
                 class='h-auto w-[250px] rounded-3xl'
-                src='/assets/ifac.webp'
-                alt='IFAC logo'
               />
             </a>
           </div>

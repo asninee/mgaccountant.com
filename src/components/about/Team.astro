@@ -1,3 +1,8 @@
+---
+import { Image } from 'astro:assets'
+import maneshaImg from '../../../public/assets/manesha.webp'
+---
+
 <section class='py-16 sm:py-24'>
   <div class='mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8'>
     <h2 class='text-3xl font-semibold font-serif tracking-tight md:text-4xl'>
@@ -5,11 +10,10 @@
     </h2>
     <div class='flex flex-wrap items-center justify-evenly gap-28 pt-32 px-4'>
       <div class='flex flex-col gap-6 items-center'>
-        <img
+        <Image
+          src={maneshaImg}
+          alt='Image of Manesha, Managing Director of MG Accountant Ltd'
           class='h-96 w-full max-w-xl rounded-3xl relative'
-          width='576'
-          height='864'
-          src='/assets/manesha.webp'
         />
         <div class='flex flex-col items-center gap-1'>
           <h3 class='text-2xl font-serif tracking-tight md:text-3xl'>

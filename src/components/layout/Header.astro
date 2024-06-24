@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets'
+import logoImg from '../../../public/assets/logo.webp'
 import { buttonVariants } from '../ui/button'
 import NavMenu from './Navigation'
 import NavSheet from './Sheet'
@@ -15,10 +17,10 @@ import NavSheet from './Sheet'
         class='focus-visible:outline-primary-950 rounded-md focus-visible:outline focus-visible:outline-2'
       >
         <span class='sr-only'>mgaccountant</span>
-        <img
-          class='h-12 md:h-16 w-auto'
-          src='/assets/logo.webp'
+        <Image
+          src={logoImg}
           alt='mgaccountant logo'
+          class='h-12 md:h-16 w-auto'
         />
       </a>
     </div>
