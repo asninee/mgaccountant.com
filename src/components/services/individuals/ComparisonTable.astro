@@ -1,0 +1,164 @@
+---
+import { Icon } from 'astro-icon/components'
+
+const plans = [
+  {
+    categories: [
+      {
+        name: 'Individual Tax Returns',
+        features: [
+          {
+            name: 'Self-Assessment Tax Return',
+            check: true,
+          },
+          {
+            name: 'Register for Self-Assessment or CIS online',
+            check: true,
+          },
+        ],
+      },
+    ],
+  },
+]
+
+const categories = [
+  {
+    name: 'Taxes',
+    rows: [
+      {
+        name: 'Self-Assessment Tax Return',
+        data: [
+          {
+            check: true,
+          },
+        ],
+      },
+      {
+        name: 'Register for Self-Assessment or CIS online',
+        data: [
+          {
+            check: true,
+          },
+        ],
+      },
+    ],
+  },
+]
+---
+
+<section id='ctable' class='py-16 sm:py-20'>
+  <div class='mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8'>
+    <!-- Comparison table -->
+    <div>
+      <!-- xs to lg -->
+      <div class='space-y-24 lg:hidden'>
+        {
+          plans.map(plan => (
+            <section>
+              {plan.categories.map(category => (
+                <table class='w-full'>
+                  <caption class='pt-8 border-t border-gray-200 py-3 px-4 text-sm font-bold text-white text-start'>
+                    <span class='bg-purple-700 -mx-6 py-2 px-4 rounded-xl'>
+                      {category.name}
+                    </span>
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th class='sr-only' scope='col'>
+                        Feature
+                      </th>
+                      <th class='sr-only' scope='col'>
+                        Included
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class='divide-y divide-gray-200'>
+                    {category.features.map(feature => (
+                      <tr>
+                        <th
+                          class='py-5 px-4 text-sm font-normal text-start whitespace-nowrap'
+                          scope='row'
+                        >
+                          {feature.name}
+                        </th>
+                        <td class='py-5 pe-4'>
+                          {feature.check ? (
+                            <Icon
+                              name='lucide:check'
+                              class='flex-shrink-0 ms-auto size-5'
+                            />
+                          ) : (
+                            <Icon
+                              name='lucide:minus'
+                              class='flex-shrink-0 ms-auto size-5 text-gray-400'
+                            />
+                          )}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              ))}
+            </section>
+          ))
+        }
+      </div>
+
+      <!-- lg+ -->
+      <div class='hidden lg:block'>
+        <table class='w-full h-px'>
+          <caption class='sr-only'>Accounting plan comparison</caption>
+          <tbody class='border-t border-gray-200'>
+            {
+              categories.map(category => (
+                <>
+                  <tr>
+                    <th
+                      class='pt-8 pb-4 ps-6 font-bold text-white text-start'
+                      colspan='5'
+                      scope='colgroup'
+                    >
+                      <span class='bg-cyan-400 -mx-6 py-2 px-4 rounded-xl'>
+                        {category.name}
+                      </span>
+                    </th>
+                  </tr>
+                  <>
+                    {category.rows.map(row => (
+                      <tr class='border-b border-gray-200 '>
+                        <th
+                          class='py-5 ps-6 pe-6 text-sm font-normal text-gray-600 text-start whitespace-nowrap'
+                          scope='row'
+                        >
+                          {row.name}
+                        </th>
+
+                        {row.data.map(entry => (
+                          <td class='py-5 px-6'>
+                            {entry.check ? (
+                              <Icon
+                                name='lucide:check'
+                                class='flex-shrink-0 mx-auto size-5'
+                              />
+                            ) : (
+                              <Icon
+                                name='lucide:minus'
+                                class='flex-shrink-0 mx-auto size-5 text-gray-400'
+                              />
+                            )}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </>
+                </>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <!-- End lg+ -->
+    </div>
+    <!-- End Comparison table -->
+  </div>
+</section>
