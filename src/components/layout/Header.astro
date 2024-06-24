@@ -17,20 +17,20 @@ import NavSheet from './Sheet'
         <span class='sr-only'>mgaccountant</span>
         <img
           class='h-12 md:h-16 w-auto'
-          src='/assets/logo.png'
+          src='/assets/logo.webp'
           alt='mgaccountant logo'
         />
       </a>
     </div>
 
-    <NavMenu client:idle />
+    <NavMenu client:load />
 
     <div class='flex gap-5'>
       <a href='/contact' class={buttonVariants({ variant: 'default' })}
         ><span class='text-lg font-semibold'>Get in touch</span></a
       >
 
-      <NavSheet client:idle />
+      <NavSheet client:load />
     </div>
   </div>
 </header>
