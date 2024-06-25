@@ -42,12 +42,14 @@ const features = [
                   {feature.name}
                 </span>
               </h2>
-              <p class='font-semibold rounded-md text-justify'>
+              <p class='font-semibold rounded-md text-justify tracking-tight'>
                 {feature.description}
                 {feature.children && (
                   <ul class='list-disc pl-4 flex flex-col gap-1'>
                     {feature.children.map(child => (
-                      <li class='font-semibold rounded-md'>{child.text}</li>
+                      <li class='font-semibold rounded-md tracking-tight'>
+                        {child.text}
+                      </li>
                     ))}
                   </ul>
                 )}
