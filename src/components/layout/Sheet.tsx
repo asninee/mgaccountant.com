@@ -12,7 +12,7 @@ const NavSheet = () => {
       </SheetTrigger>
       <SheetContent>
         <nav className='grid gap-6 text-lg font-medium'>
-          <a href='#' className='hover:text-foreground'>
+          <a href='/' className='text-muted-foreground hover:text-foreground'>
             Home
           </a>
           <a
