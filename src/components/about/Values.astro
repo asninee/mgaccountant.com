@@ -1,6 +1,4 @@
 ---
-import { Card, CardContent } from '../ui/card'
-
 const values = [
   {
     name: 'Accountability',
@@ -51,30 +49,35 @@ const values = [
     >
       Our Values
     </h2>
-    <div class='py-12'>
-      <ul role='list' class='flex flex-col gap-6'>
+
+    <div class='pt-12'>
+      <ul
+        role='list'
+        class='grid grid-cols-1 lg:grid-cols-3 items-center border-2 border-sky-700 divide-y-2 lg:divide-y-0 lg:divide-x-2 divide-sky-700 rounded-xl'
+      >
         {
           values.map(item => (
-            <>
-              <Card className='py-2 bg-lime-500 text-black relative'>
-                <CardContent className='flex gap-12 lg:gap-[250px]'>
-                  <h1 class='md:text-xl mt-4 font-serif'>
-                    <span class='font-bold text-sky-700 underline'>{item.name[0]}</span>{item.name.slice(1)}
-                  </h1>
-
-                  <div class='mt-4 font-semibold md:text-md'>
+            <div class='group relative z-10 p-4 md:p-6 h-full flex flex-col bg-lime-500 first:rounded-t-md last:rounded-b-md lg:first:rounded-l-md lg:first:rounded-tr-none lg:last:rounded-r-md lg:last:rounded-bl-none'>
+              <div class='mb-5'>
+                <div class='mt-5 flex flex-col gap-5'>
+                  <p class='font-semibold text-sky-700 italic underline text-3xl font-serif'>
+                    {item.name}
+                  </p>
+                  <div class='md:text-md'>
                     {
-                      <ul role='list' class='flex flex-col gap-2'>
+                      <ul
+                        role='list'
+                        class='list-disc font-medium text-base sm:text-lg pl-4 flex flex-col gap-2'
+                      >
                         {item.children.map(child => (
-                          <p>{child.name}</p>
+                          <li>{child.name}</li>
                         ))}
                       </ul>
                     }
                   </div>
-                </CardContent>
-              </Card>
-              <div class='border-b' />
-            </>
+                </div>
+              </div>
+            </div>
           ))
         }
       </ul>
