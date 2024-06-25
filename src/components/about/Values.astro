@@ -61,7 +61,7 @@ const values = [
               <div class='mb-5'>
                 <div class='mt-5 flex flex-col gap-5'>
                   <p class='font-semibold text-sky-700 italic underline text-3xl font-serif'>
-                    {item.name}
+                    <span class='font-bold text-lime-600'>{item.name[0]}</span>{item.name.slice(1)}
                   </p>
                   <div class='md:text-md'>
                     {
