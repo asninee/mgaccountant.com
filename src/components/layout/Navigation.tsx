@@ -29,11 +29,12 @@ const NavMenu = () => {
     <NavigationMenu className='md:block hidden'>
       <NavigationMenuList className='gap-10'>
         <NavigationMenuItem>
-          <a href='/about'>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              About Us
-            </NavigationMenuLink>
-          </a>
+          <NavigationMenuLink
+            href='/about'
+            className={navigationMenuTriggerStyle()}
+          >
+            About Us
+          </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuTrigger>Services</NavigationMenuTrigger>
@@ -52,11 +53,12 @@ const NavMenu = () => {
           </NavigationMenuContent>
         </NavigationMenuItem>
         {/* <NavigationMenuItem>
-          <a href='/news'>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              News
-            </NavigationMenuLink>
-          </a>
+          <NavigationMenuLink
+            href='/news'
+            className={navigationMenuTriggerStyle()}
+          >
+            News
+          </NavigationMenuLink>
         </NavigationMenuItem> */}
       </NavigationMenuList>
     </NavigationMenu>
