@@ -1,4 +1,5 @@
 ---
+import SpeedInsights from '@vercel/speed-insights/astro'
 import { ViewTransitions } from 'astro:transitions'
 
 const { title, description } = Astro.props
@@ -36,3 +37,5 @@ const { title, description } = Astro.props
 
 <!-- transitions -->
 <ViewTransitions />
+
+<SpeedInsights />
