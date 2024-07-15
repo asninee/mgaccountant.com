@@ -1,5 +1,6 @@
 ---
 import Head from '@/components/layout/Head.astro'
+import { Toaster } from '@/components/ui/sonner'
 import '@/styles/base.css'
 import Footer from '../components/layout/Footer.astro'
 import Header from '../components/layout/Header.astro'
@@ -24,13 +25,10 @@ const { title, description } = Astro.props
     <main class='px-6 sm:px-8 lg:px-10'>
       <slot />
     </main>
+    <Toaster theme='light' richColors client:idle />
     <Footer />
 
     <style is:global>
-      [x-cloak] {
-        display: none !important;
-      }
-
       @font-face {
         font-family: 'Playfair Display';
         src:
