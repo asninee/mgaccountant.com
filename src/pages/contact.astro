@@ -1,5 +1,5 @@
 ---
-import ContactForm from '@/components/contact/ContactForm.astro'
+import ContactForm from '@/components/contact/ContactForm'
 import ContactInfo from '@/components/contact/ContactInfo.astro'
 import Base from '@/layouts/Base.astro'
 ---
@@ -12,6 +12,10 @@ import Base from '@/layouts/Base.astro'
     class='flex flex-wrap lg:gap-6 justify-center items-center py-20 sm:py-24'
   >
     <ContactInfo />
-    <ContactForm />
+    <section class='pb-16 sm:pb-20 grow'>
+      <div class='mx-auto max-w-2xl lg:max-w-7xl'>
+        <ContactForm client:idle />
+      </div>
+    </section>
   </div>
 </Base>
