@@ -18,7 +18,7 @@ const values = [
 ---
 
 <section class='py-16 sm:py-20'>
-  <div class='mx-auto max-w-2xl sm:px-6 lg:max-w-7xl lg:px-8'>
+  <div class='mx-auto sm:px-6 lg:max-w-7xl lg:px-8'>
     <div class='flex flex-col gap-8 lg:gap-12'>
       <div class='grid gap-8 lg:grid-cols-2'>
         {
@@ -26,7 +26,7 @@ const values = [
             <div class:list={['space-y-8', index === 1 && 'lg:mt-16']}>
               {column.map(value => (
                 <div class='flex flex-col gap-6 rounded-md p-4 bg-sky-700 text-white'>
-                  <p class='font-semibold md:text-xl text-black bg-lime-500 p-2 rounded-md'>
+                  <p class='font-medium  md:text-xl text-black bg-lime-500 p-2 rounded-md'>
                     {value.description}
                   </p>
                   <span class='md:text-xl font-serif font-semibold'>
