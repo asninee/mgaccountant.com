@@ -108,9 +108,7 @@ const ContactForm = () => {
           </div>
         </CardContent>
         <CardFooter>
-          <Button type='submit' className='text-lg'>
-            Submit
-          </Button>
+          <Button type='submit'>Submit</Button>
           <div id='result'></div>
         </CardFooter>
       </Card>
