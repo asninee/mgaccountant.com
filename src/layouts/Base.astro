@@ -26,6 +26,13 @@ const { title, description } = Astro.props
 
     <style is:global>
       @font-face {
+        font-family: 'BDOGrotesk';
+        src: url('/fonts/BDOGrotesk-subset.woff2') format('woff2');
+        font-display: swap;
+        font-weight: 400 600;
+      }
+
+      @font-face {
         font-family: 'Playfair Display';
         src:
           url('/fonts/Playfair-subset.woff2')

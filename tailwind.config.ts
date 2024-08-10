@@ -6,6 +6,7 @@ export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     fontFamily: {
+      sans: ['BDOGrotesk', ...defaultTheme.fontFamily.sans],
       serif: ['Playfair Display', ...defaultTheme.fontFamily.serif],
     },
     container: {
