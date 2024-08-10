@@ -1,6 +1,5 @@
 ---
-import SpeedInsights from '@vercel/speed-insights/astro'
-import { ViewTransitions } from 'astro:transitions'
+import '@/styles/base.css'
 
 const { title, description } = Astro.props
 ---
@@ -8,34 +7,38 @@ const { title, description } = Astro.props
 <!-- global metadata -->
 <meta charset='utf-8' />
 <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-<meta name='viewport' content='width=device-width' />
+<meta name='viewport' content='width=device-width, initial-scale=1' />
 <meta name='generator' content={Astro.generator} />
 
-<!-- font preloads -->
-<link
-  rel='preload'
-  href='/fonts/Playfair-subset.woff2'
-  as='font'
-  type='font/woff2'
-  crossorigin='anonymous'
-/>
-<link
-  rel='preload'
-  href='/fonts/Playfair-Italic-subset.woff2'
-  as='font'
-  type='font/woff2'
-  crossorigin='anonymous'
-/>
+<head>
+  <!-- font preloads -->
+  <link
+    rel='preload'
+    href='/fonts/Playfair-subset.woff2'
+    as='font'
+    type='font/woff2'
+    crossorigin='anonymous'
+  />
+  <link
+    rel='preload'
+    href='/fonts/Playfair-Italic-subset.woff2'
+    as='font'
+    type='font/woff2'
+    crossorigin='anonymous'
+  />
 
-<!-- primary meta tags -->
-<title>{title}</title>
-<meta name='title' content={title} />
-<meta name='description' content={description} />
+  <!-- primary meta tags -->
+  <title>{title}</title>
+  <meta name='title' content={title} />
+  <meta name='description' content={description} />
 
-<!-- sitemap -->
-<link rel='sitemap' href='/sitemap-index.xml' />
+  <!-- sitemap -->
+  <link rel='sitemap' href='/sitemap-index.xml' />
 
-<!-- transitions -->
-<ViewTransitions />
-
-<SpeedInsights />
+  <!-- transitions -->
+  <style>
+    @view-transition {
+      navigation: auto;
+    }
+  </style>
+</head>
