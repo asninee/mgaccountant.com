@@ -44,9 +44,7 @@ const values = [
 
 <section class='py-16 sm:py-20'>
   <div class='mx-auto max-w-2xl sm:px-6 lg:max-w-7xl lg:px-8'>
-    <h2
-      class='text-3xl sm:text-4xl md:text-5xl font-semibold font-serif tracking-tight'
-    >
+    <h2 class='text-3xl sm:text-4xl md:text-5xl font-serif tracking-tight'>
       Our Values
     </h2>
 
@@ -61,7 +59,8 @@ const values = [
               <div class='mb-5'>
                 <div class='mt-5 flex flex-col gap-5'>
                   <p class='font-semibold text-lime-800 italic underline text-3xl font-serif'>
-                    <span class='font-bold text-sky-700'>{item.name[0]}</span>{item.name.slice(1)}
+                    <span class='font-bold text-sky-700'>{item.name[0]}</span>
+                    {item.name.slice(1)}
                   </p>
                   <div class='md:text-md'>
                     {
