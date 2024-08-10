@@ -1,133 +1,128 @@
 ---
 const features = [
-  [
-    {
-      name: 'Business Start-up',
-      description:
-        'It is imperative when starting up in business to have the right structure, advice and know the implications of this. We can assist you with advising on the most effective structure for your business, setting up accounting records and aiding with compliance, Submission of initial statutory forms and returns and incorporating the company.',
-    },
-    {
-      name: 'Accounts',
-      description:
-        'Financial reporting is fundamental to business but can be complex and difficult to navigate. Our specialists are able to support with all your reporting and accounting needs, ensuring that you have the accurate financial forecasts and statements needed to plan and operate effectively. The team is able to provide real-time updated accounts customised to the unique needs of your business, whilst still meeting regulatory standards, underpinned by personalised client service designed to support you all the way.',
-    },
-    {
-      name: 'Payroll',
-      description:
-        "Our payroll department can take the increasingly complex area of payroll out of clients' hands leaving them to concentrate on their business. We use the latest computer software enabling us to provide a cost effective service including:",
-      children: [
-        {
-          text: 'Preparation of monthly/weekly payslips and notification of the liability payable to HMRC.',
-        },
-        {
-          text: 'Completion of statutory forms and year-end employer returns.',
-        },
-        {
-          text: 'Preparation and submission of P11d forms.',
-        },
-        {
-          text: 'Construction Industry Scheme monthly and annual returns.',
-        },
-      ],
-    },
-    {
-      name: 'VAT',
-      description:
-        'Ever changing regulations and the growing demands of HMRC mean VAT compliance can be a difficult administrative process. We can help to ensure that you comply with the regulations and that overpayments are not made. To help you manage this complex area, we provide an efficient, cost-effective VAT service, which includes:',
-      children: [
-        {
-          text: 'Assistance with VAT registration & deregistration.',
-        },
-        {
-          text: 'Advice on VAT planning and administration.',
-        },
-        {
-          text: 'Use of the most appropriate scheme.',
-        },
-        {
-          text: 'VAT control and reconciliation.',
-        },
-        {
-          text: 'Help with completing VAT returns',
-        },
-      ],
-    },
-  ],
-  [
-    {
-      name: 'Business Advisory',
-      description:
-        'Making the right business decisions means applying clarity and objectivity. MG Accountant Ltd’s highly experienced business advisory service combines deep financial expertise with real-world insight and broad market understanding to offer invaluable strategic counsel and planning support for company leaders in a wide range of scenarios.',
-    },
-    {
-      name: 'Taxation',
-      description:
-        'The ever-changing and intricate world of taxation requires experience and highly specialised knowledge. Our experts are here to ensure that your finances are structured in the most efficient, effective, and compliant ways, through deep understanding of your personal and professional circumstances. We operate to ensure that risks are minimised while all incentives and allowances are fully explored.',
-    },
-    {
-      name: 'Bookkeeping',
-      description:
-        'We are able to offer a range of services that can help relieve your business of the burden of bookkeeping and accounts work. For a business that cannot afford an in-house accountant it may be more efficient to use our resources. Our services are tailored to individual client needs and include:',
-      children: [
-        {
-          text: 'Annual financial statements incorporating profit and loss account and balance sheet for companies and unincorporated businesses.',
-        },
-        {
-          text: 'Management accounts on a regular basis and for whatever period you may require e.g. monthly, quarterly, six monthly, etc.',
-        },
-        {
-          text: 'Accounts preparation for specialised areas such as trusts, non-profit making organisations, charities and pension schemes.',
-        },
-        {
-          text: 'We are able to maintain a computerised record of clients’ books of prime entry from the information supplied to us and prepare the necessary financial information.',
-        },
-        {
-          text: 'We can offer help and advice with the installation and operating of well known accounting software packages such as Sage, Quickbooks and Xero and ensure you are making Tax Digital (MTD) compliant.',
-        },
-      ],
-    },
-    {
-      name: 'Cash Flow Forecasting',
-      description:
-        'Forecasting is crucial when you are making big changes within business and especially for new start ups so you can measure success in the early periods. We offer a range of services suited to your business needs.',
-    },
-    {
-      name: 'Making Tax Digital Compliance',
-      description:
-        "We are compliant with HMRC's making tax digital requirements for particular taxes and can assist in finding the suitable platform for you to ensure compliance is maintained.",
-    },
-  ],
+  {
+    name: 'Business Start-up',
+    description:
+      'It is imperative when starting up in business to have the right structure, advice and know the implications of this. We can assist you with advising on the most effective structure for your business, setting up accounting records and aiding with compliance, Submission of initial statutory forms and returns and incorporating the company.',
+  },
+  {
+    name: 'Accounts',
+    description:
+      'Financial reporting is fundamental to business but can be complex and difficult to navigate. Our specialists are able to support with all your reporting and accounting needs, ensuring that you have the accurate financial forecasts and statements needed to plan and operate effectively. The team is able to provide real-time updated accounts customised to the unique needs of your business, whilst still meeting regulatory standards, underpinned by personalised client service designed to support you all the way.',
+  },
+  {
+    name: 'Payroll',
+    description:
+      "Our payroll department can take the increasingly complex area of payroll out of clients' hands leaving them to concentrate on their business. We use the latest computer software enabling us to provide a cost effective service including:",
+    children: [
+      {
+        text: 'Preparation of monthly/weekly payslips and notification of the liability payable to HMRC.',
+      },
+      {
+        text: 'Completion of statutory forms and year-end employer returns.',
+      },
+      {
+        text: 'Preparation and submission of P11d forms.',
+      },
+      {
+        text: 'Construction Industry Scheme monthly and annual returns.',
+      },
+    ],
+  },
+  {
+    name: 'VAT',
+    description:
+      'Ever changing regulations and the growing demands of HMRC mean VAT compliance can be a difficult administrative process. We can help to ensure that you comply with the regulations and that overpayments are not made. To help you manage this complex area, we provide an efficient, cost-effective VAT service, which includes:',
+    children: [
+      {
+        text: 'Assistance with VAT registration & deregistration.',
+      },
+      {
+        text: 'Advice on VAT planning and administration.',
+      },
+      {
+        text: 'Use of the most appropriate scheme.',
+      },
+      {
+        text: 'VAT control and reconciliation.',
+      },
+      {
+        text: 'Help with completing VAT returns',
+      },
+    ],
+  },
+
+  {
+    name: 'Business Advisory',
+    description:
+      'Making the right business decisions means applying clarity and objectivity. MG Accountant Ltd’s highly experienced business advisory service combines deep financial expertise with real-world insight and broad market understanding to offer invaluable strategic counsel and planning support for company leaders in a wide range of scenarios.',
+  },
+  {
+    name: 'Taxation',
+    description:
+      'The ever-changing and intricate world of taxation requires experience and highly specialised knowledge. Our experts are here to ensure that your finances are structured in the most efficient, effective, and compliant ways, through deep understanding of your personal and professional circumstances. We operate to ensure that risks are minimised while all incentives and allowances are fully explored.',
+  },
+  {
+    name: 'Bookkeeping',
+    description:
+      'We are able to offer a range of services that can help relieve your business of the burden of bookkeeping and accounts work. For a business that cannot afford an in-house accountant it may be more efficient to use our resources. Our services are tailored to individual client needs and include:',
+    children: [
+      {
+        text: 'Annual financial statements incorporating profit and loss account and balance sheet for companies and unincorporated businesses.',
+      },
+      {
+        text: 'Management accounts on a regular basis and for whatever period you may require e.g. monthly, quarterly, six monthly, etc.',
+      },
+      {
+        text: 'Accounts preparation for specialised areas such as trusts, non-profit making organisations, charities and pension schemes.',
+      },
+      {
+        text: 'We are able to maintain a computerised record of clients’ books of prime entry from the information supplied to us and prepare the necessary financial information.',
+      },
+      {
+        text: 'We can offer help and advice with the installation and operating of well known accounting software packages such as Sage, Quickbooks and Xero and ensure you are making Tax Digital (MTD) compliant.',
+      },
+    ],
+  },
+  {
+    name: 'Cash Flow Forecasting',
+    description:
+      'Forecasting is crucial when you are making big changes within business and especially for new start ups so you can measure success in the early periods. We offer a range of services suited to your business needs.',
+  },
+  {
+    name: 'MTD Compliance',
+    description:
+      "We are compliant with HMRC's making tax digital requirements for particular taxes and can assist in finding the suitable platform for you to ensure compliance is maintained.",
+  },
 ]
 ---
 
 <section class='py-16 sm:py-20'>
   <div class='mx-auto max-w-2xl lg:max-w-7xl'>
     <div class='flex flex-col gap-8 lg:gap-12'>
-      <div class='grid gap-8 lg:grid-cols-2'>
+      <div class='grid gap-8 lg:grid-cols-2 xl:grid-cols-3'>
         {
-          features.map((column, index) => (
-            <div class:list={['space-y-8', index === 1 && 'lg:mt-16']}>
-              {column.map(value => (
-                <div class='flex flex-col gap-6 rounded-lg p-8 bg-neutral-100'>
-                  <h2 class='text-lg sm:text-xl md:text-2xl font-serif font-semibold'>
-                    <span class='bg-lime-500 text-sky-700 p-2 -mx-2 rounded-full'>
-                      {value.name}
-                    </span>
-                  </h2>
-                  <p class='font-semibold rounded-md text-justify tracking-tight'>
-                    {value.description}
-                    {value.children && (
-                      <ul class='list-disc pl-4 flex flex-col gap-1'>
-                        {value.children.map(child => (
-                          <li class='font-semibold rounded-md tracking-tight'>
-                            {child.text}
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </p>
-                </div>
-              ))}
+          features.map(feature => (
+            <div>
+              <div class='flex flex-col gap-6 rounded-lg p-8 bg-neutral-100'>
+                <h2 class='text-lg sm:text-xl md:text-2xl font-serif font-semibold'>
+                  <span class='bg-lime-500 text-sky-700 p-2 -mx-2 rounded-md'>
+                    {feature.name}
+                  </span>
+                </h2>
+                <p class='font-semibold text-justify tracking-tight'>
+                  {feature.description}
+                  {feature.children && (
+                    <ul class='list-disc pl-4 flex flex-col gap-1'>
+                      {feature.children.map(child => (
+                        <li class='font-semibold tracking-tight'>
+                          {child.text}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </p>
+              </div>
             </div>
           ))
         }
