@@ -26,10 +26,12 @@ const values = [
             <div class:list={['space-y-8', index === 1 && 'lg:mt-16']}>
               {column.map(value => (
                 <div class='flex flex-col gap-6 rounded-md p-4 bg-sky-700 text-white'>
-                  <p class='font-semibold font-serif md:text-xl text-black bg-lime-500 p-2 rounded-md'>
+                  <p class='font-semibold md:text-xl text-black bg-lime-500 p-2 rounded-md'>
                     {value.description}
                   </p>
-                  <span class='md:text-xl font-semibold'>{value.name}</span>
+                  <span class='md:text-xl font-semibold font-serif italic'>
+                    {value.name}
+                  </span>
                 </div>
               ))}
             </div>
