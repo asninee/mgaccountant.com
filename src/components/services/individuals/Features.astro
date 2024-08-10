@@ -2,28 +2,40 @@
 const features = [
   {
     name: 'Personal Tax Planning',
-    description:
-      'We work alongside independent financial advisors and other professionals to assist in your personal tax planning and forecasting.',
-  },
-  {
-    name: 'Bookkeeping',
-    description:
-      'We are able to offer a range of services that can help relieve your business of the burden of bookkeeping and accounts work. For a business that cannot afford an in-house accountant it may be more efficient to use our resources. Our services are tailored to individual client needs and include:',
+    description: `We look to provide simple, bespoke solutions but can also deal with complex situations, providing tax advice that you understand. 
+      
+      Our highly skilled tax team can advise and support you and your family with a variety of personal tax matters, including:`,
     children: [
       {
-        text: 'Annual financial statements incorporating profit and loss account and balance sheet for companies and unincorporated businesses.',
+        text: 'Income Tax',
       },
       {
-        text: 'Management accounts on a regular basis and for whatever period you may require e.g. monthly, quarterly, six monthly, etc.',
+        text: 'Capital Gains Tax (CGT)',
       },
       {
-        text: 'Accounts preparation for specialised areas such as trusts, non-profit making organisations, charities and pension schemes.',
+        text: 'Inheritance Tax',
       },
       {
-        text: "We are able to maintain a computerised record of clients' books of prime entry from the information supplied to us and prepare the necessary financial information.",
+        text: 'Non-Domiciliary Taxes',
       },
       {
-        text: 'We can offer help and advice with the installation and operating of well known accounting software packages such as Sage, Quickbooks and Xero and ensure you are making Tax Digital (MTD) compliant.',
+        text: 'Investigations',
+      },
+    ],
+  },
+  {
+    name: 'Self-Assessment',
+    description:
+      'Over 11 million people are required to submit a Self-Assessment tax return in the UK each year.',
+    children: [
+      {
+        text: 'When an individual first meets the requirements to report his/her income to HMRC in the form of a tax return, they must notify HMRC by 5th October following the relevant tax year-end.',
+      },
+      {
+        text: 'Our team of personal tax experts assist thousands of clients each year in the preparation and filing of their annual tax returns, from simple tax returns to complex returns which require a combination of tax specialists.',
+      },
+      {
+        text: 'Combining a wealth of knowledge and industry experience with a comprehensive understanding of the legislation governing Personal Tax returns, our team work collaboratively to ensure the highest level of accuracy in the preparation and filing of your Self-Assessment tax return.',
       },
     ],
   },
@@ -33,27 +45,29 @@ const features = [
 <section class='py-16 sm:py-20'>
   <div class='mx-auto max-w-2xl lg:max-w-7xl'>
     <div class='flex flex-col gap-8 lg:gap-12'>
-      <div class='grid gap-8 lg:grid-cols-2'>
+      <div class='grid gap-8 lg:grid-cols-2 xl:grid-cols-3'>
         {
           features.map(feature => (
-            <div class='flex flex-col gap-6 rounded-lg p-8 bg-neutral-100'>
-              <h2 class='text-lg sm:text-xl md:text-2xl font-serif font-semibold'>
-                <span class='bg-lime-500 text-sky-700 p-2 -mx-2 rounded-full'>
-                  {feature.name}
-                </span>
-              </h2>
-              <p class='font-semibold rounded-md text-justify tracking-tight'>
-                {feature.description}
-                {feature.children && (
-                  <ul class='list-disc pl-4 flex flex-col gap-1'>
-                    {feature.children.map(child => (
-                      <li class='font-semibold rounded-md tracking-tight'>
-                        {child.text}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </p>
+            <div>
+              <div class='flex flex-col gap-6 rounded-lg p-8 bg-neutral-100'>
+                <h2 class='text-lg sm:text-xl md:text-2xl font-serif font-semibold'>
+                  <span class='bg-lime-500 text-sky-700 p-2 -mx-2 rounded-md'>
+                    {feature.name}
+                  </span>
+                </h2>
+                <p class='font-semibold text-justify tracking-tight'>
+                  {feature.description}
+                  {feature.children && (
+                    <ul class='list-disc pl-4 flex flex-col gap-1'>
+                      {feature.children.map(child => (
+                        <li class='font-semibold tracking-tight'>
+                          {child.text}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </p>
+              </div>
             </div>
           ))
         }
