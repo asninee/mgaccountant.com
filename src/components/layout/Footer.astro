@@ -5,26 +5,26 @@ import logoImg from '../../images/logo.webp'
 
 const pageLinks = [
   {
-    header: 'Links',
+    header: 'Services',
     links: [
       {
-        name: 'Home',
-        href: '/',
-        isExternal: false,
-      },
-      {
-        name: 'About Us',
-        href: '/about',
-        isExternal: false,
-      },
-      {
-        name: 'Services for businesses',
+        name: 'For businesses',
         href: '/services/businesses',
         isExternal: false,
       },
       {
-        name: 'Services for individuals',
+        name: 'For individuals',
         href: '/services/individuals',
+        isExternal: false,
+      },
+    ],
+  },
+  {
+    header: 'Company',
+    links: [
+      {
+        name: 'About Us',
+        href: '/about',
         isExternal: false,
       },
       {
@@ -44,58 +44,54 @@ const pageLinks = [
   <h2 id='footer-heading' class='sr-only'>Footer</h2>
   <div class='mx-auto lg:max-w-7xl px-6 sm:px-8 lg:px-12'>
     <div class='flex items-start justify-around gap-12 sm:gap-16'>
-      <div class='grid grid-cols-1 gap-8'>
-        <!-- locations -->
-        <div class='flex flex-col gap-4'>
-          <p class='text-base font-semibold'>Locations</p>
-          <ul role='list' class='flex flex-col gap-3'>
-            <li class='flex flex-col gap-2'>
-              <p class='text-sm font-medium'>London</p>
-              <div class='text-primary-950/70 text-sm flex flex-col'>
-                <p>20 Wenlock Road</p>
-                <p>London</p>
-                <p>N1 7GU</p>
-              </div>
-            </li>
-          </ul>
-        </div>
+      <!-- locations -->
+      <div class='flex flex-col gap-4'>
+        <p class='text-base font-semibold'>Locations</p>
+        <ul role='list' class='flex flex-col gap-3'>
+          <li class='flex flex-col gap-2'>
+            <p class='text-sm font-medium'>London</p>
+            <div class='text-primary-950/70 text-sm flex flex-col'>
+              <p>20 Wenlock Road</p>
+              <p>London</p>
+              <p>N1 7GU</p>
+            </div>
+          </li>
+        </ul>
       </div>
 
       <!-- links -->
-      <div class='grid grid-cols-1 gap-8'>
-        {
-          pageLinks.map(group => (
-            <div class='flex flex-col gap-4'>
-              <p class='text-base font-semibold'>{group.header}</p>
-              <ul role='list' class='flex flex-col gap-3'>
-                {group.links.map(link => (
-                  <li>
-                    <a
-                      href={link.href}
-                      class='focus-visible:outline-primary-950 inline-flex items-center gap-1 rounded-md text-sm hover:underline focus-visible:outline focus-visible:outline-2'
-                      target={link.isExternal ? '_blank' : undefined}
-                      rel={link.isExternal ? 'noopener' : undefined}
-                    >
-                      {link.name}
-                      {link.isExternal && (
-                        <svg
-                          class='h-4 w-4'
-                          xmlns='http://www.w3.org/2000/svg'
-                          viewBox='0 0 24 24'
-                          fill='currentColor'
-                          aria-hidden='true'
-                        >
-                          <path d='M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z' />
-                        </svg>
-                      )}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))
-        }
-      </div>
+      {
+        pageLinks.map(group => (
+          <div class='flex flex-col gap-4'>
+            <p class='text-base font-semibold'>{group.header}</p>
+            <ul role='list' class='flex flex-col gap-3'>
+              {group.links.map(link => (
+                <li>
+                  <a
+                    href={link.href}
+                    class='focus-visible:outline-primary-950 inline-flex items-center gap-1 rounded-md text-sm hover:underline focus-visible:outline focus-visible:outline-2'
+                    target={link.isExternal ? '_blank' : undefined}
+                    rel={link.isExternal ? 'noopener' : undefined}
+                  >
+                    {link.name}
+                    {link.isExternal && (
+                      <svg
+                        class='h-4 w-4'
+                        xmlns='http://www.w3.org/2000/svg'
+                        viewBox='0 0 24 24'
+                        fill='currentColor'
+                        aria-hidden='true'
+                      >
+                        <path d='M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z' />
+                      </svg>
+                    )}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
     </div>
     <hr class='my-12 lg:my-16' />
     <div class='flex items-center justify-between'>
