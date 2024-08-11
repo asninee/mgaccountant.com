@@ -6,8 +6,8 @@ const NavSheet = () => {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant='outline' size='icon' className='shrink-0 md:hidden'>
-          <Icon icon='lucide:align-justify' />
+        <Button variant='ghost' size='icon' className='shrink-0 md:hidden'>
+          <Icon className='w-6 h-6' icon='lucide:align-justify' />
         </Button>
       </SheetTrigger>
       <SheetContent>
