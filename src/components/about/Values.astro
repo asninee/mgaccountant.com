@@ -1,41 +1,59 @@
 ---
 const values = [
   {
-    name: 'Accountability',
+    name: 'We Engage',
     children: [
       {
-        name: 'To our clients',
+        name: 'We effectively engage with our colleagues and clients to create a culture of openness, trust, and transparency, thus promoting an inclusive environment that celebrates individuality. When others reach out for support, we offer our help and guidance, continually seeking to draw out the best in one another.',
+      },
+    ],
+    slogans: [
+      {
+        name: 'Listen',
       },
       {
-        name: 'To the overall success of our firm',
+        name: 'Energise',
       },
       {
-        name: 'To each of our associates',
+        name: 'Trust',
       },
     ],
   },
   {
-    name: 'Communication',
+    name: 'We Empower',
     children: [
       {
-        name: 'Promote positive working relationships and encourage teamwork',
+        name: 'Through praise and constructive feedback, we empower our team to perform at their best. We invest time and energy in building productive working relationships, as well as inspiring and supporting one another in all that we do. On a day-to-day basis, our differences are celebrated and our combined strength recognised.',
+      },
+    ],
+    slogans: [
+      {
+        name: 'Inspire',
       },
       {
-        name: 'Recognize the importance of balance between our personal and professional lives ',
+        name: 'Support',
       },
       {
-        name: 'Respect individuality',
+        name: 'Collaborate',
       },
     ],
   },
   {
-    name: 'Ethics',
+    name: 'We Excel',
     children: [
       {
-        name: 'Always conduct ourselves with the highest level of integrity',
+        name: 'By promoting honesty, responsibility, and professionalism throughout our work, we ensure that we deliver a consistently high-quality service. We deliver value to our clients by anticipating future economic and technical developments, therefore embracing, encouraging, and driving change where needed.',
+      },
+    ],
+    slogans: [
+      {
+        name: 'Commit',
       },
       {
-        name: 'Maintain professionalism with honesty, loyalty and doing the right thing all the time',
+        name: 'Deliver',
+      },
+      {
+        name: 'Innovate',
       },
     ],
   },
@@ -46,32 +64,33 @@ const values = [
   <div class='mx-auto sm:px-6 lg:max-w-7xl lg:px-8'>
     <h2 class='text-3xl sm:text-4xl md:text-5xl font-serif'>Our Values</h2>
 
-    <div class='pt-12'>
-      <ul
-        role='list'
-        class='grid grid-cols-1 lg:grid-cols-3 items-center border-2 border-sky-700 divide-y-2 lg:divide-y-0 lg:divide-x-2 divide-sky-700 rounded-xl'
-      >
+    <div class='pt-20'>
+      <ul role='list' class='grid grid-cols-1 xl:grid-cols-3 gap-12'>
         {
-          values.map(item => (
-            <div class='group relative z-10 p-4 md:p-6 h-full flex flex-col bg-lime-500 first:rounded-t-md last:rounded-b-md lg:first:rounded-l-md lg:first:rounded-tr-none lg:last:rounded-r-md lg:last:rounded-bl-none'>
-              <div class='mb-5'>
-                <div class='mt-5 flex flex-col gap-5'>
-                  <p class='font-semibold text-lime-800 italic underline text-3xl font-serif'>
-                    <span class='font-bold text-sky-700'>{item.name[0]}</span>
-                    {item.name.slice(1)}
+          values.map((item, index) => (
+            <div class='flex gap-12'>
+              <ul role='list' class='flex items-center flex-col gap-2 max-w-12'>
+                {item.slogans.map(slogan => (
+                  <li class='p-1 odd:bg-sky-700 even:bg-lime-600 text-white text-sm rounded-md'>
+                    {slogan.name}.
+                  </li>
+                ))}
+              </ul>
+              <div class='flex flex-col gap-5'>
+                <div class='flex items-center gap-2'>
+                  <p class='px-2.5 py-0.5 bg-black text-white rounded-full'>
+                    {index + 1}
                   </p>
-                  <div class='md:text-md'>
-                    {
-                      <ul
-                        role='list'
-                        class='list-disc font-medium text-base sm:text-lg pl-4 flex flex-col gap-2 text-justify '
-                      >
-                        {item.children.map(child => (
-                          <li>{child.name}</li>
-                        ))}
-                      </ul>
-                    }
-                  </div>
+                  <p class='text-2xl lg:text-3xl font-semibold'>{item.name}</p>
+                </div>
+                <div>
+                  {
+                    <ul role='list' class='flex flex-col gap-2'>
+                      {item.children.map(child => (
+                        <li>{child.name}</li>
+                      ))}
+                    </ul>
+                  }
                 </div>
               </div>
             </div>
