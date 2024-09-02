@@ -1,8 +1,7 @@
 import { toast } from 'sonner'
 import { Button } from '../ui/button'
-import { Card, CardContent, CardFooter } from '../ui/card'
-import { Input } from '../ui/input'
-import { Label } from '../ui/label'
+import { Card } from '../ui/card'
+import { TextField } from '../ui/text-field'
 import { Textarea } from '../ui/textarea'
 
 const accessKey = import.meta.env.PUBLIC_W3FORMS_KEY
@@ -37,80 +36,66 @@ const ContactForm = () => {
     <form onSubmit={handleSubmit} className='mt-3 flex flex-col'>
       <input type='hidden' name='access_key' value={accessKey} />
       <Card className='bg-neutral-100 sm:p-4'>
-        <CardContent className='pt-6'>
+        <Card.Content className='pt-6'>
           <div className='flex flex-col gap-8'>
             <div className='flex flex-wrap gap-6'>
               <div className='flex flex-col space-y-2 grow'>
-                <Label htmlFor='fname'>
-                  First Name <span className='text-red-500'>*</span>
-                </Label>
-                <Input
-                  className='bg-white'
+                <TextField
+                  label='First Name'
                   name='fname'
-                  required
+                  isRequired
                   placeholder='Your first name'
                 />
               </div>
               <div className='flex flex-col space-y-2 grow'>
-                <Label htmlFor='lname'>
-                  Last Name <span className='text-red-500'>*</span>
-                </Label>
-                <Input
-                  className='bg-white'
+                <TextField
+                  label='Last Name'
                   name='lname'
-                  required
+                  isRequired
                   placeholder='Your last name'
                 />
               </div>
             </div>
             <div className='flex flex-wrap gap-6'>
               <div className='flex flex-col space-y-2 grow'>
-                <Label htmlFor='email'>
-                  Email Address <span className='text-red-500'>*</span>
-                </Label>
-                <Input
-                  className='bg-white'
+                <TextField
+                  label='Email Address'
                   type='email'
                   name='email'
-                  required
+                  isRequired
                   placeholder='Your email address'
                 />
               </div>
               <div className='flex flex-col space-y-2 grow'>
-                <Label htmlFor='cname'>Company Name</Label>
-                <Input
-                  className='bg-white'
+                <TextField
+                  label='Company Name'
                   name='cname'
                   placeholder='Your company name'
                 />
               </div>
             </div>
             <div className='flex flex-col space-y-2'>
-              <Label htmlFor='number'>Contact Number</Label>
-              <Input
+              <TextField
+                label='Contact Number'
                 type='tel'
-                className='bg-white'
                 name='number'
                 placeholder='Your contact number'
               />
             </div>
             <div className='flex flex-col space-y-2'>
-              <Label htmlFor='message'>
-                Message <span className='text-red-500'>*</span>
-              </Label>
               <Textarea
-                className='bg-white'
+                label='Message'
                 name='message'
-                required
+                isRequired
                 placeholder='Type your message here'
               />
             </div>
           </div>
-        </CardContent>
-        <CardFooter>
+        </Card.Content>
+        <Card.Footer>
           <Button type='submit'>Submit</Button>
           <div id='result'></div>
-        </CardFooter>
+        </Card.Footer>
       </Card>
     </form>
   )

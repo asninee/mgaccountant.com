@@ -1,0 +1,43 @@
+---
+const features = [
+  {
+    name: 'Personalized Tax Advice',
+    desc: 'MG Accountant Ltd offers bespoke tax advice tailored to individual circumstances, ensuring compliance and optimizing your financial position.',
+  },
+  {
+    name: 'Comprehensive Tax Planning',
+    desc: 'Expert support in personal tax matters, including income tax, capital gains tax (CGT), inheritance tax (IHT), and non-domiciliary taxes, with solutions that are easy to understand.',
+  },
+  {
+    name: 'Self-Assessment Assistance',
+    desc: 'Specializing in preparing and filing Self-Assessment tax returns, MG Accountant Ltd provides support from simple to complex cases, ensuring accuracy and compliance with HMRC regulations.',
+  },
+  {
+    name: 'Proactive Client Engagement',
+    desc: 'The firm emphasizes creating a culture of trust and openness, engaging effectively with clients to understand their unique needs and provide reliable support.',
+  },
+  {
+    name: 'Commitment to Excellence',
+    desc: 'MG Accountant Ltd promotes honesty, responsibility, and professionalism, consistently delivering high-quality services by anticipating economic and technical developments.',
+  },
+]
+---
+
+<section class='border-t py-16 sm:py-20 px-4 sm:px-6 mx-auto lg:max-w-7xl'>
+  <div class='flex flex-col gap-6 sm:gap-16'>
+    {
+      features.map((feature, index) => (
+        <div class='flex flex-col sm:flex-row sm:justify-start gap-6'>
+          <div class='flex gap-5 items-center sm:justify-center'>
+            <p class='text-2xl sm:text-3xl md:text-4xl'>{index + 1}</p>
+            <span class='grow border-b border-black' />
+          </div>
+          <div class='flex flex-col gap-2 sm:gap-4 sm:text-lg'>
+            <strong>{feature.name}</strong>
+            <p class='text-neutral-500'>{feature.desc}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

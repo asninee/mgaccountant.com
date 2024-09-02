@@ -4,7 +4,7 @@ const values = [
     name: 'We Engage',
     children: [
       {
-        name: 'We effectively engage with our colleagues and clients to create a culture of openness, trust, and transparency, thus promoting an inclusive environment that celebrates individuality. When others reach out for support, we offer our help and guidance, continually seeking to draw out the best in one another.',
+        text: 'We effectively engage with our colleagues and clients to create a culture of openness, trust, and transparency, thus promoting an inclusive environment that celebrates individuality. When others reach out for support, we offer our help and guidance, continually seeking to draw out the best in one another.',
       },
     ],
     slogans: [
@@ -23,7 +23,7 @@ const values = [
     name: 'We Empower',
     children: [
       {
-        name: 'Through praise and constructive feedback, we empower our team to perform at their best. We invest time and energy in building productive working relationships, as well as inspiring and supporting one another in all that we do. On a day-to-day basis, our differences are celebrated and our combined strength recognised.',
+        text: 'Through praise and constructive feedback, we empower our team to perform at their best. We invest time and energy in building productive working relationships, as well as inspiring and supporting one another in all that we do. On a day-to-day basis, our differences are celebrated and our combined strength recognised.',
       },
     ],
     slogans: [
@@ -42,7 +42,7 @@ const values = [
     name: 'We Excel',
     children: [
       {
-        name: 'By promoting honesty, responsibility, and professionalism throughout our work, we ensure that we deliver a consistently high-quality service. We deliver value to our clients by anticipating future economic and technical developments, therefore embracing, encouraging, and driving change where needed.',
+        text: 'By promoting honesty, responsibility, and professionalism throughout our work, we ensure that we deliver a consistently high-quality service. We deliver value to our clients by anticipating future economic and technical developments, therefore embracing, encouraging, and driving change where needed.',
       },
     ],
     slogans: [
@@ -62,16 +62,16 @@ const values = [
 
 <section class='py-16 sm:py-20'>
   <div class='mx-auto sm:px-6 lg:max-w-7xl lg:px-8'>
-    <h2 class='text-3xl sm:text-4xl md:text-5xl font-serif'>Our Values</h2>
+    <h2 class='text-3xl sm:text-4xl md:text-5xl'>Our Values</h2>
 
-    <div class='pt-20'>
+    <div class='pt-8 md:pt-12'>
       <ul role='list' class='grid grid-cols-1 xl:grid-cols-3 gap-12'>
         {
           values.map((item, index) => (
             <div class='flex gap-12'>
               <ul role='list' class='flex items-center flex-col gap-2 max-w-12'>
                 {item.slogans.map(slogan => (
-                  <li class='ml-3 p-1 odd:bg-sky-700 even:bg-lime-600 text-white text-sm rounded-md'>
+                  <li class='ml-6 p-1 odd:bg-sky-700 even:bg-lime-600 text-white text-sm font-semibold rounded-md'>
                     {slogan.name}.
                   </li>
                 ))}
@@ -87,7 +87,7 @@ const values = [
                   {
                     <ul role='list' class='flex flex-col gap-2'>
                       {item.children.map(child => (
-                        <li>{child.name}</li>
+                        <li class='text-neutral-500'>{child.text}</li>
                       ))}
                     </ul>
                   }

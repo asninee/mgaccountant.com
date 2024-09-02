@@ -1,18 +1,14 @@
 ---
-import { Image } from 'astro:assets'
-import logoImg from '../../images/logo.webp'
-import { buttonVariants } from '../ui/button'
-import NavMenu from './Navigation'
-import NavSheet from './Sheet'
+import { Navigation } from './Navigation'
 ---
 
-<header class='transition sticky top-0 bg-white z-50'>
+<!-- <header class='transition sticky top-0 bg-white z-50'>
   <div class='flex items-center justify-between px-6 sm:px-8 lg:px-12 py-4'>
-    <!-- Brand logo -->
+    Brand logo
     <div class='flex'>
       <a
         href='/'
-        class='focus-visible:outline-primary-950 rounded-md focus-visible:outline focus-visible:outline-2'
+        class='focus-visible:outline-neutral-950 rounded-md focus-visible:outline focus-visible:outline-2'
       >
         <span class='sr-only'>mgaccountant</span>
         <Image
@@ -28,7 +24,7 @@ import NavSheet from './Sheet'
 
     <div class='flex gap-5'>
       <div class='hidden md:flex'>
-        <a href='/contact' class={buttonVariants({ variant: 'default' })}
+        <a href='/contact' class={buttonStyles()}
           ><span class='text-lg font-semibold'>Get in touch</span></a
         >
       </div>
@@ -36,4 +32,5 @@ import NavSheet from './Sheet'
       <NavSheet client:idle />
     </div>
   </div>
-</header>
+</header> -->
+<Navigation client:load />

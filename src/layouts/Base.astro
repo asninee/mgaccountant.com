@@ -1,6 +1,6 @@
 ---
 import Head from '@/components/layout/Head.astro'
-import { Toaster } from '@/components/ui/sonner'
+import { Toast } from '@/components/ui/toast'
 import Footer from '../components/layout/Footer.astro'
 import Header from '../components/layout/Header.astro'
 
@@ -15,13 +15,13 @@ const { title, description } = Astro.props
 <html lang='en' class='scroll-smooth'>
   <Head title={title} description={description} />
   <body
-    class='bg-primary-50 text-primary-950 antialiased transition overflow-x-hidden max-w-container tracking-tight'
+    class='bg-white text-neutral-950 antialiased transition overflow-x-hidden max-w-container tracking-tight'
   >
     <Header />
-    <main class='px-6 sm:px-8 lg:px-10'>
+    <main class='px-4 sm:px-8 lg:px-10'>
       <slot />
     </main>
-    <Toaster theme='light' richColors client:idle />
+    <Toast client:idle />
     <Footer />
 
     <style is:global>

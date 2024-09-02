@@ -1,52 +1,46 @@
 ---
-import { Icon } from 'astro-icon/components'
-import { buttonVariants } from '../ui/button'
+
 ---
 
-<section class='py-16 sm:py-20'>
+<section>
   <div class='mx-auto sm:px-6 lg:max-w-7xl lg:px-8'>
-    <h2 class='text-3xl sm:text-4xl md:text-5xl font-serif'>Why us?</h2>
+    <h2 class='text-3xl sm:text-4xl md:text-5xl'>Why us?</h2>
     <div class='flex flex-col gap-10'>
-      <div class='py-8 md:py-12 flex flex-col gap-6 text-justify'>
-        <p class='text-primary-950/70 md:text-lg'>
-          Accounting is the backbone of any business. Without proper accounting
-          practices, businesses would struggle to understand their financial
-          position to make informed decisions and comply with legal and
-          regulatory requirements.
+      <div
+        class='pt-8 md:pt-12 flex flex-col gap-6 text-justify md:text-lg text-neutral-500'
+      >
+        <p>
+          Accounting is the cornerstone of every business. Without robust
+          accounting practices, companies would struggle to assess their
+          financial health, make informed decisions, and adhere to legal and
+          regulatory obligations.
         </p>
-        <p class='text-primary-950/70 md:text-lg'>
-          We listen, we care, and we deliver! Simplify your finances, that where
-          MG Accountant Ltd has devised a range of packages designed to cover
-          the most-requested accountancy services on offer.
+        <p>
+          At MG Accountant Ltd, we listen, we care, and we deliver! Simplify
+          your finances with our tailored packages that encompass the most
+          in-demand accounting services.
         </p>
-        <p class='text-primary-950/70 md:text-lg'>
-          Our priority is to deliver accurate information, streamlining your
-          accounting needs in the most economical way possible.
-        </p>
-        <p class='text-primary-950/70 md:text-lg'>
-          We cover a variety of business sectors and will tailor our services to
-          your specific needs.
-        </p>
-        <p class='text-primary-950/70 md:text-lg'>
-          The packages are all available via convenient monthly subscription, so
-          you never have to worry about a large bill at the end of the year.
-        </p>
-        <p class='text-primary-950/70 md:text-lg'>
-          If you have any questions or would like to know more about the
-          services we offer, please get in touch and we'll be delighted to
-          discuss your requirements with you.
-        </p>
-      </div>
-      <div class='self-center'>
-        <a
-          href='/contact'
-          class={buttonVariants({ variant: 'default', size: 'md' })}
-        >
-          <div class='flex items-center gap-4'>
-            <span class='sm:text-lg font-semibold'>Get in touch</span>
-            <Icon name='lucide:arrow-right' class='h-6 w-6' />
-          </div>
-        </a>
+        <div class='pl-4'>
+          <ul class='list-disc list-outside pl-4 flex flex-col gap-1'>
+            <li>
+              Our focus is on providing precise information while optimizing
+              your accounting processes in the most cost-effective manner.
+            </li>
+            <li>
+              We cater to a diverse range of business sectors and customize our
+              services to meet your specific needs.
+            </li>
+            <li>
+              Our packages are available through convenient monthly
+              subscriptions, ensuring you avoid unexpected large bills at
+              year-end.
+            </li>
+            <li>
+              For inquiries or to learn more about our services, please reach
+              out. We would be delighted to discuss your requirements with you.
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
