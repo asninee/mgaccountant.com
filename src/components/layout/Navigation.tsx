@@ -1,7 +1,7 @@
 'use client'
 
 import { Container } from '@/components/layout/container'
-import { LayoutGroup, motion } from 'framer-motion'
+import { LayoutGroup } from 'framer-motion'
 import React, { useEffect } from 'react'
 import { ListBox, ListBoxItem } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
@@ -78,7 +78,7 @@ export function Navigation() {
 }
 
 const navStyles = tv({
-  base: 'text-sm relative py-0 sm:py-4 inline-flex focus:outline-none focus-visible:text-fg font-medium',
+  base: 'text-sm relative py-0 md:py-4 inline-flex focus:outline-none focus-visible:text-fg font-medium',
   variants: {
     isCurrent: {
       true: 'text-fg',
@@ -129,7 +129,7 @@ function NavContent() {
       <ListBox
         orientation={isMobile ? 'vertical' : 'horizontal'}
         layout={isMobile ? 'stack' : 'grid'}
-        className='flex relative sm:flex-row flex-col sm:items-center gap-3 sm:gap-6'
+        className='flex relative md:flex-row flex-col md:items-center gap-3 md:gap-6'
         items={links}
         aria-label='Navigation'
       >
@@ -165,16 +165,6 @@ function NavLink({ children, className, ...props }: LinkProps) {
   return (
     <ListBoxItem className={navStyles({ isCurrent, className })} {...props}>
       {children}
-      {isCurrent && <CurrentIndicator />}
     </ListBoxItem>
-  )
-}
-
-function CurrentIndicator() {
-  return (
-    <motion.span
-      className='h-full inset-y-0 sm:inset-auto sm:h-0.5 w-0.5 sm:w-full rounded-full bg-fg -left-4 sm:-bottom-2 sm:inset-x block absolute'
-      layoutId='current'
-    />
   )
 }

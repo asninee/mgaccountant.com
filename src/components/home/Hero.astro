@@ -1,19 +1,11 @@
 ---
 import { Icon } from 'astro-icon/components'
-import { Image } from 'astro:assets'
-import heroImg from '../../images/hero.webp'
 import { buttonStyles } from '../ui/button'
 ---
 
 <section class='py-2 sm:py-4 mx-auto lg:max-w-7xl'>
-  <div class='bg-black rounded-2xl pb-4 sm:pb-6 flex flex-col gap-8 sm:gap-10'>
-    <Image
-      src={heroImg}
-      loading='eager'
-      alt='Person pointing at a tablet, guiding someone else'
-      class='h-auto w-full rounded-t-2xl'
-    />
-    <div class='px-4 sm:px-6 flex flex-col items-start gap-8 sm:gap-12'>
+  <div class='bg-black rounded-2xl flex flex-col gap-8 sm:gap-10'>
+    <div class='p-4 sm:p-6 flex flex-col items-start gap-8 sm:gap-12'>
       <div class='flex flex-col items-start gap-10 sm:gap-14 text-white'>
         <h1 class='max-w-3xl text-4xl sm:text-5xl md:text-6xl'>
           Bringing <strong class='text-lime-600'>order</strong> to the chaos no matter
@@ -27,7 +19,7 @@ import { buttonStyles } from '../ui/button'
         </p>
       </div>
       <a href='/about' class={buttonStyles({ size: 'medium' })}>
-        <div class='flex items-center gap-3'>
+        <div class='flex items-center gap-2'>
           <span class='sm:text-lg font-semibold'>About us</span>
           <Icon name='lucide:arrow-right' class='h-6 w-6' />
         </div>

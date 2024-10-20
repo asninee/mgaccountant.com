@@ -12,7 +12,7 @@ const team = [
     paras: [
       {
         content:
-          "Manesha is the firm's Managing Partner, responsible for driving the vision and strategy of the firm. Manesha's 10 years of experience extends to working with clients in the businesses of IT, recruitment, media, childcare, healthcare, construction, and retail",
+          "Manesha is the firm's Managing Partner, responsible for driving the vision and strategy of the firm. Manesha's 10 years of experience extends to working with clients in the businesses of IT, recruitment, media, childcare, healthcare, construction, and retail.",
       },
       {
         content:
