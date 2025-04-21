@@ -1,11 +1,10 @@
-import Autoplay from 'embla-carousel-autoplay'
-import { useRef } from 'react'
 import { useMediaQuery } from '../ui'
 import { Card } from '../ui/card'
 import { Carousel } from '../ui/carousel'
 
 const team = [
   {
+    id: 1,
     name: 'Manesha Goncalves',
     role: 'Managing Partner',
     email: 'manesha@mgaccountant.com',
@@ -21,6 +20,7 @@ const team = [
     ],
   },
   {
+    id: 2,
     name: 'Leandro Goncalves',
     role: 'Partner Support',
     email: 'leandro@mgaccountant.com',
@@ -36,6 +36,7 @@ const team = [
     ],
   },
   {
+    id: 3,
     name: 'Priya Mohit',
     role: 'Finance Administrator',
     email: 'priya@mgaccountant.com',
@@ -54,23 +55,18 @@ const team = [
 
 const TeamCarousel = () => {
   const isMobile = useMediaQuery('(max-width: 768px)')
-  const plugin = useRef(Autoplay({ delay: 5000, stopOnInteraction: true }))
 
   return (
     <Carousel
       orientation={isMobile ? 'vertical' : 'horizontal'}
-      onMouseEnter={plugin.current.stop}
-      onMouseLeave={plugin.current.reset}
-      plugins={[plugin.current as any]}
       opts={{
-        loop: true,
         align: 'center',
       }}
       className='relative max-w-full [&_.xrkr]:overflow-hidden [&_.xrkr]:flex [&_.xrkr]:flex-col'
     >
       <Carousel.Content items={team} className='h-96 md:h-auto py-4 snap-y'>
         {member => (
-          <Carousel.Item id={member.name} className='sm:basis-1/2 lg:basis-1/3'>
+          <Carousel.Item id={member.id} className='sm:basis-1/2 lg:basis-1/3'>
             <div className='p-1'>
               <Card>
                 <Card.Header>
