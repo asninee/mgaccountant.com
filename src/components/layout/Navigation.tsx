@@ -7,7 +7,7 @@ import { ListBox, ListBoxItem } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 import { Button, buttonStyles, Link, Sheet, useMediaQuery } from 'ui'
 
-import { IconBarsThree } from 'justd-icons'
+import { IconBarsThree } from '@intentui/icons'
 import logoImg from '../../images/logo.webp'
 
 const links = [
