@@ -31,7 +31,7 @@ interface FieldProps {
 const fieldStyles = tv({
   slots: {
     description: 'text-pretty text-muted-fg text-sm/6',
-    label: 'w-fit cursor-default font-medium text-secondary-fg text-sm/6',
+    label: 'w-fit cursor-default font-semibold text-secondary-fg text-sm/6',
     fieldError: 'text-danger text-sm/6 forced-colors:text-[Mark]',
   },
 })

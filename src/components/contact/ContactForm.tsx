@@ -34,65 +34,42 @@ const ContactForm = () => {
   return (
     <form onSubmit={handleSubmit} className='mt-3 flex flex-col'>
       <input type='hidden' name='access_key' value={accessKey} />
-      <Card className='bg-neutral-100 sm:p-4'>
-        <Card.Content className='pt-6'>
+      <Card className='md:p-4'>
+        <Card.Content className='md:pt-6'>
           <div className='flex flex-col gap-8'>
             <div className='flex flex-wrap gap-6'>
               <div className='flex flex-col space-y-2 grow'>
-                <TextField
-                  label='First Name'
-                  name='fname'
-                  isRequired
-                  placeholder='Your first name'
-                />
+                <TextField label='First name' name='firstName' isRequired />
               </div>
               <div className='flex flex-col space-y-2 grow'>
-                <TextField
-                  label='Last Name'
-                  name='lname'
-                  isRequired
-                  placeholder='Your last name'
-                />
+                <TextField label='Last name' name='lastName' isRequired />
               </div>
             </div>
             <div className='flex flex-wrap gap-6'>
               <div className='flex flex-col space-y-2 grow'>
-                <TextField
-                  label='Email Address'
-                  type='email'
-                  name='email'
-                  isRequired
-                  placeholder='Your email address'
-                />
+                <TextField label='Email' type='email' name='email' isRequired />
               </div>
               <div className='flex flex-col space-y-2 grow'>
-                <TextField
-                  label='Company Name'
-                  name='cname'
-                  placeholder='Your company name'
-                />
+                <TextField label='Company' name='companyName' />
               </div>
             </div>
             <div className='flex flex-col space-y-2'>
               <TextField
-                label='Contact Number'
+                label='Phone number'
                 type='tel'
-                name='number'
-                placeholder='Your contact number'
+                name='phoneNumber'
+                placeholder='123-456-7890'
               />
             </div>
             <div className='flex flex-col space-y-2'>
-              <Textarea
-                label='Message'
-                name='message'
-                isRequired
-                placeholder='Type your message here'
-              />
+              <Textarea label='Message' name='message' isRequired />
             </div>
           </div>
         </Card.Content>
-        <Card.Footer>
-          <Button type='submit'>Submit</Button>
+        <Card.Footer className='md:pb-6'>
+          <Button type='submit' className='font-semibold w-full'>
+            Let's talk
+          </Button>
           <div id='result'></div>
         </Card.Footer>
       </Card>
