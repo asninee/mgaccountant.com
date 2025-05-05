@@ -1,14 +1,15 @@
 'use client'
 
-import { Container } from '@/components/layout/container'
 import { LayoutGroup } from 'framer-motion'
 import React, { useEffect } from 'react'
 import { ListBox, ListBoxItem } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
-import { Button, buttonStyles, Link, Sheet, useMediaQuery } from 'ui'
+import { Button, buttonStyles, Link, Sheet } from 'ui'
 
+import { Container } from '@components/layout/container'
+import logoImg from '@images/logo.webp'
 import { IconBarsThree } from '@intentui/icons'
-import logoImg from '../../images/logo.webp'
+import { useMediaQuery } from '@lib/utils'
 
 const links = [
   {
@@ -63,7 +64,7 @@ export function Navigation() {
             <div className='flex items-center gap-2 justify-end'>
               <Link
                 aria-label='Contact'
-                className={buttonStyles({ size: 'small' })}
+                className={buttonStyles({ size: 'small', intent: 'secondary' })}
                 href='/contact'
               >
                 <span className='font-semibold'>Get in touch</span>
@@ -98,10 +99,14 @@ function NavResponsive() {
 
   return (
     <Sheet onOpenChange={setOpen} isOpen={isOpen}>
-      <Button size='square-petite' appearance='outline'>
+      <Button size='square-petite' intent='outline'>
         <IconBarsThree />
       </Button>
-      <Sheet.Content>
+      <Sheet.Content
+        classNames={{
+          overlay: 'backdrop-blur',
+        }}
+      >
         <Sheet.Header className='text-left p-4 border-b'>
           <Sheet.Title className='text-sm flex items-center gap-2'>
             <span className='sr-only'>mgaccountant</span>

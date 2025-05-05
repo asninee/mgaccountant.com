@@ -1,7 +1,7 @@
 ---
+import ifacImg from '@images/ifac.webp'
+import logoImg from '@images/logo.webp'
 import { Image } from 'astro:assets'
-import ifacImg from '../../images/ifac.webp'
-import logoImg from '../../images/logo.webp'
 
 const pageLinks = [
   {
@@ -68,7 +68,7 @@ const year = new Date().getFullYear()
                 <li>
                   <a
                     href={link.href}
-                    class='focus-visible:outline-neutral-950 inline-flex items-center gap-1 rounded-md text-sm hover:underline focus-visible:outline focus-visible:outline-2'
+                    class='focus-visible:outline-neutral-950 inline-flex items-center gap-1 rounded-md text-sm hover:underline focus-visible:outline-2'
                     target={link.isExternal ? '_blank' : undefined}
                     rel={link.isExternal ? 'noopener' : undefined}
                   >
@@ -98,7 +98,7 @@ const year = new Date().getFullYear()
       <div class='flex gap-12'>
         <a
           href='/'
-          class='focus-visible:outline-neutral-950 rounded-md focus-visible:outline focus-visible:outline-2'
+          class='focus-visible:outline-neutral-950 rounded-md focus-visible:outline'
         >
           <span class='sr-only'>mgaccountant</span>
           <Image src={logoImg} alt='mgaccountant logo' class='h-14 w-auto' />
@@ -107,7 +107,7 @@ const year = new Date().getFullYear()
           href='https://www.ifac.org/'
           target='_blank'
           rel='noopener'
-          class='focus-visible:outline-neutral-950 rounded-md focus-visible:outline focus-visible:outline-2'
+          class='focus-visible:outline-neutral-950 rounded-md focus-visible:outline'
         >
           <span class='sr-only'>IFAC</span>
           <Image
@@ -122,7 +122,7 @@ const year = new Date().getFullYear()
       <div class='flex items-center gap-6 text-sm'>
         <a
           href='https://asnine.me/'
-          class='focus-visible:outline-neutral-950 rounded-md hover:underline focus-visible:outline focus-visible:outline-2'
+          class='focus-visible:outline-neutral-950 rounded-md hover:underline focus-visible:outline-2'
           >Site by <strong>asnine</strong></a
         >
         <p>&copy; {year} MG Accountant Ltd</p>

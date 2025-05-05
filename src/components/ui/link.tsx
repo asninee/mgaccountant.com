@@ -1,43 +1,29 @@
 import {
-  composeRenderProps,
   Link as LinkPrimitive,
   type LinkProps as LinkPrimitiveProps,
 } from 'react-aria-components'
-import { tv } from 'tailwind-variants'
-
-const linkStyles = tv({
-  base: [
-    'relative focus-visible:outline-2 outline-offset-2 outline-0 focus:outline-none outline-primary transition-colors',
-    'forced-colors:outline-[Highlight] forced-colors:disabled:text-[GrayText] disabled:focus-visible:outline-0',
-    'disabled:cursor-default disabled:opacity-60',
-  ],
-  variants: {
-    intent: {
-      unstyled: 'text-current',
-      primary:
-        'text-primary hover:text-primary/80 forced-colors:disabled:text-[GrayText]',
-      danger:
-        'text-danger hover:text-danger/80 forced-colors:disabled:text-[GrayText]',
-      'lad/primary':
-        'text-fg hover:text-primary dark:hover:text-primary/80 forced-colors:disabled:text-[GrayText]',
-      secondary: 'text-secondary-fg hover:text-secondary-fg/80',
-    },
-  },
-  defaultVariants: {
-    intent: 'unstyled',
-  },
-})
+import { twJoin } from 'tailwind-merge'
+import { composeTailwindRenderProps } from './primitive'
 
 interface LinkProps extends LinkPrimitiveProps {
-  intent?: 'primary' | 'secondary' | 'danger' | 'lad/primary' | 'unstyled'
+  intent?: 'primary' | 'secondary' | 'unstyled'
+  ref?: React.RefObject<HTMLAnchorElement>
 }
 
-const Link = ({ className, ...props }: LinkProps) => {
+const Link = ({ className, ref, intent = 'unstyled', ...props }: LinkProps) => {
   return (
     <LinkPrimitive
+      ref={ref}
       {...props}
-      className={composeRenderProps(className, (className, ...renderProps) =>
-        linkStyles({ ...renderProps, intent: props.intent, className })
+      className={composeTailwindRenderProps(
+        className,
+        twJoin([
+          'outline-0 outline-offset-2 transition-[color,_opacity] focus-visible:outline-2 focus-visible:outline-ring forced-colors:outline-[Highlight]',
+          'disabled:cursor-default disabled:opacity-60 forced-colors:disabled:text-[GrayText]',
+          intent === 'unstyled' && 'text-current',
+          intent === 'primary' && 'text-primary hover:underline',
+          intent === 'secondary' && 'text-secondary-fg hover:underline',
+        ])
       )}
     >
       {values => (
@@ -51,4 +37,5 @@ const Link = ({ className, ...props }: LinkProps) => {
   )
 }
 
-export { Link, LinkPrimitive, type LinkPrimitiveProps, type LinkProps }
+export { Link }
+export type { LinkProps }

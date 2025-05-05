@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import {
   Button as ButtonPrimitive,
   type ButtonProps as ButtonPrimitiveProps,
@@ -7,127 +5,103 @@ import {
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
-import { focusButtonStyles } from './primitive'
-
-const buttonStyles = tv(
-  {
-    extend: focusButtonStyles,
-    base: [
-      'kbt32x before:absolute after:absolute box-border relative no-underline isolate inline-flex items-center justify-center gap-x-2 border font-medium',
-      'forced-colors:[--button-icon:ButtonText] forced-colors:hover:[--button-icon:ButtonText]',
-      '[&>[data-slot=icon]]:-mx-0.5 [&>[data-slot=icon]]:my-1 [&>[data-slot=icon]]:size-4 [&>[data-slot=icon]]:shrink-0 [&>[data-slot=icon]]:text-[--button-icon]',
-    ],
-    variants: {
-      intent: {
-        primary: [
-          'text-primary-fg [--button-bg:theme(colors.primary.DEFAULT)] [--button-border:theme(colors.primary.DEFAULT)] [--button-hover-overlay:theme(colors.white/10%)]',
-          '[--button-icon:theme(colors.primary.fg/60%)] active:[--button-icon:theme(colors.primary.fg/80%)] hover:[--button-icon:theme(colors.primary.fg/80%)]',
-        ],
-        secondary: [
-          'text-secondary-fg [--button-bg:theme(colors.secondary.DEFAULT)] dark:[--button-bg:theme(colors.secondary.DEFAULT)] [--button-border:theme(colors.secondary.fg/10%)] [--button-hover-overlay:theme(colors.secondary.fg/2.5%)] data-[active]:[--button-border:theme(colors.secondary.fg/15%)] hover:[--button-border:theme(colors.secondary.fg/15%)]',
-          '[--button-icon:theme(colors.muted.fg)] active:[--button-icon:theme(colors.fg)] hover:[--button-icon:theme(colors.fg)]',
-        ],
-        warning: [
-          'text-warning-fg [--button-bg:theme(colors.warning.DEFAULT)] [--button-border:theme(colors.warning.DEFAULT)] [--button-hover-overlay:theme(colors.white/10%)]',
-          '[--button-icon:theme(colors.warning.fg/60%)] active:[--button-icon:theme(colors.warning.fg/80%)] hover:[--button-icon:theme(colors.warning.fg/80%)]',
-        ],
-        danger: [
-          'text-white [--button-bg:theme(colors.danger.DEFAULT)] [--button-border:theme(colors.danger.DEFAULT)] [--button-hover-overlay:theme(colors.white/10%)]',
-          '[--button-icon:theme(colors.white/60%)] active:[--button-icon:theme(colors.white/80%)] hover:[--button-icon:theme(colors.white/80%)]',
-        ],
-      },
-      appearance: {
-        solid: [
-          'border-transparent bg-[--button-border]',
-          'before:inset-0 before:-z-10 before:bg-[--button-bg] before:shadow before:data-[disabled]:shadow-none',
-          'after:shadow-[shadow:inset_0_1px_theme(colors.white/15%)] after:active:bg-[--button-hover-overlay] after:hover:bg-[--button-hover-overlay] after:data-[disabled]:shadow-none after:inset-0 after:-z-10',
-          'dark:after:-inset-px dark:before:hidden dark:border-white/5 dark:bg-[--button-bg]',
-        ],
-        outline: [
-          'border-border text-fg [--button-icon:theme(colors.muted.fg)]',
-          'hover:[--button-icon:theme(colors.fg)] hover:bg-secondary/90',
-          'active:bg-secondary/90 active:[--button-icon:theme(colors.fg)]',
-        ],
-        plain: [
-          'border-transparent text-fg [--button-icon:theme(colors.muted.fg)]',
-          'pressed:bg-secondary/90',
-          'active:[--button-icon:theme(colors.fg)] active:bg-secondary/90',
-          'hover:[--button-icon:theme(colors.fg)] hover:bg-secondary/90',
-        ],
-      },
-      size: {
-        'extra-small':
-          'h-8 px-[calc(theme(spacing.3)-1px)] py-[calc(theme(spacing.1)-1px)] text-xs/4 lg:text-[0.800rem]/4',
-        small:
-          'h-9 px-[calc(theme(spacing.4)-1px)] py-[calc(theme(spacing[1.5])-1px)] text-sm/5 lg:text-sm/5',
-        medium:
-          'h-10 px-[calc(theme(spacing.4)-1px)] py-[calc(theme(spacing.2)-1px)] text-base lg:text-sm/6',
-        large:
-          'h-10 [&>[data-slot=icon]]:mx-[-3px] sm:h-11 px-[calc(theme(spacing.4)-1px)] sm:px-[calc(theme(spacing.5)-1px)] py-[calc(theme(spacing[2.5])-1px)] text-base lg:text-base/7 sm:[&>[data-slot=icon]]:size-5',
-        'square-petite': 'size-9 shrink-0 [&_[data-slot=icon]]:text-current',
-      },
-      shape: {
-        square:
-          'rounded-lg before:rounded-[calc(theme(borderRadius.lg)-1px)] after:rounded-[calc(theme(borderRadius.lg)-1px)] dark:after:rounded-lg',
-        circle:
-          'rounded-[9999px] before:rounded-[9998px] after:rounded-[9998px] dark:after:rounded-[9999px]',
-      },
-      isDisabled: {
-        false: 'forced-colors:disabled:text-[GrayText]',
-        true: 'cursor-default opacity-60 forced-colors:disabled:text-[GrayText]',
-      },
-      isPending: {
-        true: 'cursor-default',
-      },
+const buttonStyles = tv({
+  base: [
+    'relative isolate inline-flex items-center justify-center gap-x-2 font-medium',
+    'outline-0 outline-offset-2 hover:no-underline focus-visible:outline-2',
+    'inset-ring inset-ring-fg/20 bg-(--btn-bg) pressed:bg-(--btn-overlay) text-(--btn-fg) shadow-[shadow:inset_0_2px_--theme(--color-white/15%)] hover:bg-(--btn-overlay) dark:inset-ring-fg/15 dark:shadow-none',
+    'forced-colors:outline-[Highlight] forced-colors:[--btn-icon:ButtonText] forced-colors:hover:[--btn-icon:ButtonText]',
+    '*:data-[slot=icon]:-mx-0.5 *:data-[slot=icon]:my-1 *:data-[slot=icon]:size-4 *:data-[slot=icon]:shrink-0 *:data-[slot=icon]:text-current/60 pressed:*:data-[slot=icon]:text-current *:data-[slot=icon]:transition hover:*:data-[slot=icon]:text-current/90',
+    '*:data-[slot=avatar]:-mx-0.5 *:data-[slot=avatar]:my-1 *:data-[slot=avatar]:*:size-4 *:data-[slot=avatar]:size-4 *:data-[slot=avatar]:shrink-0',
+  ],
+  variants: {
+    intent: {
+      primary: [
+        'outline-primary [--btn-bg:theme(--color-primary/95%)] [--btn-fg:var(--color-primary-fg)] [--btn-overlay:var(--color-primary)]',
+      ],
+      secondary: [
+        'outline-primary [--btn-bg:theme(--color-secondary/90%)] [--btn-fg:var(--color-secondary-fg)] [--btn-overlay:var(--color-secondary)]',
+      ],
+      warning: [
+        'outline-warning [--btn-bg:theme(--color-warning/95%)] [--btn-fg:var(--color-warning-fg)] [--btn-overlay:var(--color-warning)]',
+      ],
+      danger: [
+        'outline-danger [--btn-bg:theme(--color-danger/95%)] [--btn-fg:var(--color-danger-fg)] [--btn-overlay:var(--color-danger)]',
+      ],
+      outline: [
+        'shadow-none outline-primary [--btn-fg:var(--color-fg)] [--btn-overlay:theme(--color-secondary/90%)]',
+      ],
+      plain: [
+        'inset-ring-transparent shadow-none outline-primary [--btn-fg:var(--color-fg)] [--btn-overlay:theme(--color-secondary/90%)] dark:inset-ring-transparent',
+      ],
     },
-    defaultVariants: {
-      intent: 'primary',
-      appearance: 'solid',
-      size: 'medium',
-      shape: 'square',
+    size: {
+      'extra-small':
+        'h-8 px-[calc(var(--spacing)*2.7)] text-xs/4 **:data-[slot=avatar]:*:size-3.5 **:data-[slot=avatar]:size-3.5 **:data-[slot=icon]:size-3 lg:text-[0.800rem]/4',
+      small: 'h-9 px-3.5 text-sm/5 sm:text-sm/5',
+      medium: 'h-10 px-4 text-base sm:text-sm/6',
+      large:
+        'h-11 px-4.5 text-base *:data-[slot=icon]:mx-[-1.5px] sm:*:data-[slot=icon]:size-5 lg:text-base/7',
+      'square-petite': 'size-9 shrink-0',
+    },
+    shape: {
+      square: 'rounded-lg',
+      circle: 'rounded-full',
+    },
+    isDisabled: {
+      false: 'cursor-pointer',
+      true: 'inset-ring-0 cursor-default opacity-50 forced-colors:text-[GrayText]',
+    },
+    isPending: {
+      true: 'cursor-default opacity-50',
     },
   },
-  {
-    responsiveVariants: ['sm', 'lg'],
-  }
-)
+  defaultVariants: {
+    intent: 'primary',
+    size: 'medium',
+    shape: 'square',
+  },
+})
 
 interface ButtonProps extends ButtonPrimitiveProps {
-  intent?: 'primary' | 'secondary' | 'danger' | 'warning'
+  intent?: 'primary' | 'secondary' | 'danger' | 'warning' | 'outline' | 'plain'
   size?: 'medium' | 'large' | 'square-petite' | 'extra-small' | 'small'
   shape?: 'square' | 'circle'
-  appearance?: 'solid' | 'outline' | 'plain'
+  ref?: React.Ref<HTMLButtonElement>
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, intent, appearance, size, shape, ...props }, ref) => {
-    return (
-      <ButtonPrimitive
-        ref={ref}
-        {...props}
-        className={composeRenderProps(className, (className, renderProps) =>
-          buttonStyles({
-            ...renderProps,
-            intent,
-            appearance,
-            size,
-            shape,
-            className,
-          })
-        )}
-      >
-        {values => (
-          <>
-            {typeof props.children === 'function'
-              ? props.children(values)
-              : props.children}
-          </>
-        )}
-      </ButtonPrimitive>
-    )
-  }
-)
+const Button = ({
+  className,
+  intent,
+  size,
+  shape,
+  ref,
+  ...props
+}: ButtonProps) => {
+  return (
+    <ButtonPrimitive
+      ref={ref}
+      {...props}
+      className={composeRenderProps(className, (className, renderProps) =>
+        buttonStyles({
+          ...renderProps,
+          intent,
+          size,
+          shape,
+          className,
+        })
+      )}
+    >
+      {values => (
+        <>
+          {typeof props.children === 'function'
+            ? props.children(values)
+            : props.children}
+        </>
+      )}
+    </ButtonPrimitive>
+  )
+}
 
-Button.displayName = 'Button'
-
-export { Button, ButtonPrimitive, buttonStyles, type ButtonProps }
+export { Button, buttonStyles }
+export type { ButtonProps }

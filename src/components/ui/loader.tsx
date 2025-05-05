@@ -1,8 +1,6 @@
-import * as React from 'react'
-
-import { cn } from '@/utils/classes'
 import { IconLoader } from '@intentui/icons'
 import { ProgressBar } from 'react-aria-components'
+import { twMerge } from 'tailwind-merge'
 import type { VariantProps } from 'tailwind-variants'
 import { tv } from 'tailwind-variants'
 
@@ -34,7 +32,7 @@ type LoaderVariantProps = VariantProps<typeof loaderStyles>
 
 const Bars = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => (
   <svg
-    className={cn('size-4', className)}
+    className={twMerge('size-4', className)}
     data-slot='icon'
     viewBox='0 0 135 140'
     xmlns='http://www.w3.org/2000/svg'
@@ -136,7 +134,7 @@ const Bars = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => (
 const Ring = (props: React.SVGProps<SVGSVGElement>) => <IconLoader {...props} />
 const Spin = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => (
   <svg
-    className={cn('size-4', className)}
+    className={twMerge('size-4', className)}
     data-slot='icon'
     viewBox='0 0 2400 2400'
     {...props}
@@ -175,7 +173,7 @@ const LOADERS = {
   spin: Spin,
 }
 
-const DEFAULT_SPINNER = 'ring'
+const DEFAULT_SPINNER = 'spin'
 
 interface LoaderProps
   extends Omit<
@@ -187,44 +185,42 @@ interface LoaderProps
   percentage?: number
   isIndeterminate?: boolean
   formatOptions?: Intl.NumberFormatOptions
+  ref?: React.RefObject<SVGSVGElement>
 }
 
-const Loader = React.forwardRef<SVGSVGElement, LoaderProps>(
-  ({ isIndeterminate = true, ...props }, ref) => {
-    const {
-      className,
-      variant = DEFAULT_SPINNER,
-      intent,
-      size,
-      ...spinnerProps
-    } = props
-    const LoaderPrimitive =
-      LOADERS[variant in LOADERS ? variant : DEFAULT_SPINNER]
+const Loader = ({ isIndeterminate = true, ref, ...props }: LoaderProps) => {
+  const {
+    className,
+    variant = DEFAULT_SPINNER,
+    intent,
+    size,
+    ...spinnerProps
+  } = props
+  const LoaderPrimitive =
+    LOADERS[variant in LOADERS ? variant : DEFAULT_SPINNER]
 
-    return (
-      <ProgressBar
-        aria-label={props['aria-label'] ?? 'Loading...'}
-        formatOptions={props.formatOptions}
-        isIndeterminate={isIndeterminate}
-      >
-        <LoaderPrimitive
-          role='presentation'
-          className={loaderStyles({
-            intent,
-            size,
-            className: cn([
-              ['ring'].includes(variant) && 'animate-spin',
-              variant === 'spin' && 'stroke-current',
-              className,
-            ]),
-          })}
-          ref={ref}
-          {...spinnerProps}
-        />
-      </ProgressBar>
-    )
-  }
-)
-Loader.displayName = 'Loader'
+  return (
+    <ProgressBar
+      aria-label={props['aria-label'] ?? 'Loading...'}
+      formatOptions={props.formatOptions}
+      isIndeterminate={isIndeterminate}
+    >
+      <LoaderPrimitive
+        role='presentation'
+        className={loaderStyles({
+          intent,
+          size,
+          className: twMerge([
+            ['ring'].includes(variant) && 'animate-spin',
+            variant === 'spin' && 'stroke-current',
+            className,
+          ]),
+        })}
+        ref={ref}
+        {...spinnerProps}
+      />
+    </ProgressBar>
+  )
+}
 
 export { Loader }

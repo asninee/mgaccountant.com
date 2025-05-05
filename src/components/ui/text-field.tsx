@@ -1,19 +1,20 @@
-import * as React from 'react'
+import { useState } from 'react'
 
 import { IconEye, IconEyeClosed } from '@intentui/icons'
-import type { TextInputDOMProps } from '@react-types/shared'
+import type {
+  InputProps,
+  TextFieldProps as TextFieldPrimitiveProps,
+} from 'react-aria-components'
 import {
   Button as ButtonPrimitive,
   TextField as TextFieldPrimitive,
-  type TextFieldProps as TextFieldPrimitiveProps,
 } from 'react-aria-components'
-
 import type { FieldProps } from './field'
 import { Description, FieldError, FieldGroup, Input, Label } from './field'
 import { Loader } from './loader'
-import { ctr } from './primitive'
+import { composeTailwindRenderProps } from './primitive'
 
-type InputType = Exclude<TextInputDOMProps['type'], 'password'>
+type InputType = Exclude<InputProps['type'], 'password'>
 
 interface BaseTextFieldProps extends TextFieldPrimitiveProps, FieldProps {
   prefix?: React.ReactNode
@@ -47,13 +48,12 @@ const TextField = ({
   type,
   ...props
 }: TextFieldProps) => {
-  const [isPasswordVisible, setIsPasswordVisible] = React.useState(false)
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false)
   const inputType = isRevealable
     ? isPasswordVisible
       ? 'text'
       : 'password'
     : type
-
   const handleTogglePasswordVisibility = () => {
     setIsPasswordVisible(prev => !prev)
   }
@@ -61,35 +61,53 @@ const TextField = ({
     <TextFieldPrimitive
       type={inputType}
       {...props}
-      className={ctr(className, 'group flex flex-col gap-y-1.5')}
+      className={composeTailwindRenderProps(
+        className,
+        'group flex flex-col gap-y-1'
+      )}
     >
-      {label && <Label>{label}</Label>}
-      <FieldGroup data-loading={isPending ? 'true' : undefined}>
-        {prefix ? (
-          <span data-slot='prefix' className='atrs x2e2'>
-            {prefix}
-          </span>
-        ) : null}
-        <Input placeholder={placeholder} />
-        {isRevealable ? (
-          <ButtonPrimitive
-            type='button'
-            aria-label='Toggle password visibility'
-            onPress={handleTogglePasswordVisibility}
-            className='mr-2.5 relative [&>[data-slot=icon]]:text-muted-fg focus:outline-none focus-visible:ring-1 focus-visible:ring-primary rounded'
+      {!props.children ? (
+        <>
+          {label && <Label>{label}</Label>}
+          <FieldGroup
+            isDisabled={props.isDisabled}
+            isInvalid={!!errorMessage}
+            data-loading={isPending ? 'true' : undefined}
           >
-            <>{isPasswordVisible ? <IconEyeClosed /> : <IconEye />}</>
-          </ButtonPrimitive>
-        ) : isPending ? (
-          <Loader variant='spin' data-slot='suffix' />
-        ) : suffix ? (
-          <span data-slot='suffix'>{suffix}</span>
-        ) : null}
-      </FieldGroup>
-      {description && <Description>{description}</Description>}
-      <FieldError>{errorMessage}</FieldError>
+            {prefix && typeof prefix === 'string' ? (
+              <span className='ml-2 text-muted-fg'>{prefix}</span>
+            ) : (
+              prefix
+            )}
+            <Input placeholder={placeholder} />
+            {isRevealable ? (
+              <ButtonPrimitive
+                type='button'
+                aria-label='Toggle password visibility'
+                onPress={handleTogglePasswordVisibility}
+                className='relative mr-1 grid shrink-0 place-content-center rounded-sm border-transparent outline-hidden *:data-[slot=icon]:text-muted-fg focus-visible:*:data-[slot=icon]:text-primary'
+              >
+                {isPasswordVisible ? <IconEyeClosed /> : <IconEye />}
+              </ButtonPrimitive>
+            ) : isPending ? (
+              <Loader variant='spin' />
+            ) : suffix ? (
+              typeof suffix === 'string' ? (
+                <span className='mr-2 text-muted-fg'>{suffix}</span>
+              ) : (
+                suffix
+              )
+            ) : null}
+          </FieldGroup>
+          {description && <Description>{description}</Description>}
+          <FieldError>{errorMessage}</FieldError>
+        </>
+      ) : (
+        props.children
+      )}
     </TextFieldPrimitive>
   )
 }
 
-export { TextField, TextFieldPrimitive, type TextFieldProps }
+export { TextField }
+export type { TextFieldProps }

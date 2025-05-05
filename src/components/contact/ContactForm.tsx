@@ -1,8 +1,7 @@
+'use client'
+
 import { toast } from 'sonner'
-import { Button } from '../ui/button'
-import { Card } from '../ui/card'
-import { TextField } from '../ui/text-field'
-import { Textarea } from '../ui/textarea'
+import { Button, Card, TextField, Textarea } from 'ui'
 
 const accessKey = import.meta.env.PUBLIC_W3FORMS_KEY
 

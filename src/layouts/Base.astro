@@ -1,8 +1,9 @@
 ---
-import Head from '@/components/layout/Head.astro'
-import { Toast } from '@/components/ui/toast'
-import Footer from '../components/layout/Footer.astro'
-import Header from '../components/layout/Header.astro'
+import { Toast } from 'ui'
+
+import Footer from '@components/layout/Footer.astro'
+import Head from '@components/layout/Head.astro'
+import Header from '@components/layout/Header.astro'
 
 interface Props {
   title: string
@@ -21,27 +22,34 @@ const { title, description } = Astro.props
     <main class='px-4 sm:px-8 lg:px-10'>
       <slot />
     </main>
-    <Toast client:idle />
+    <Toast client:visible />
     <Footer />
 
     <style is:global>
       @font-face {
         font-family: 'BDOGrotesk';
-        src: url('/fonts/BDOGrotesk-subset.woff2') format('woff2');
+        src: url('/fonts/BDOGrotesk.woff2') format('woff2');
+        font-display: swap;
+        font-weight: 400 600;
+      }
+
+      @font-face {
+        font-family: 'HedvigLettersSerif';
+        src: url('/fonts/HedvigLettersSerif.woff2') format('woff2');
         font-display: swap;
         font-weight: 400 600;
       }
 
       @font-face {
         font-family: 'Playfair Display';
-        src: url('/fonts/Playfair-subset.woff2') format('woff2');
+        src: url('/fonts/Playfair.woff2') format('woff2');
         font-weight: 400 600;
         font-display: swap;
       }
 
       @font-face {
         font-family: 'Playfair Display';
-        src: url('/fonts/Playfair-Italic-subset.woff2') format('woff2');
+        src: url('/fonts/Playfair-Italic.woff2') format('woff2');
         font-weight: 400 600;
         font-style: italic;
         font-display: swap;
