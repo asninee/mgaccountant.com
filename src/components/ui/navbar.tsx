@@ -108,8 +108,8 @@ const Navbar = ({
 
 const navStyles = tv({
   base: [
-    'group peer hidden h-(--navbar-height) w-full items-center px-4 [--navbar-height:3.5rem] md:flex',
-    '[&>div]:mx-auto [&>div]:w-full [&>div]:max-w-[1680px] [&>div]:items-center md:[&>div]:flex font-semibold',
+    'group peer hidden h-(--navbar-height) w-full items-center px-4 sm:px-8 lg:px-10 [--navbar-height:3.5rem] md:flex',
+    '[&>div]:mx-auto [&>div]:w-full [&>div]:max-w-7xl [&>div]:items-center md:[&>div]:flex font-semibold',
   ],
   variants: {
     isSticky: {
