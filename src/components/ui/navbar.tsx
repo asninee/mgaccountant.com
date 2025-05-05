@@ -155,7 +155,9 @@ const NavbarNav = ({
           }}
           isFloat={intent === 'floating'}
         >
-          <Sheet.Body className='px-2 md:px-4'>{props.children}</Sheet.Body>
+          <Sheet.Body className='px-2 gap-3 md:px-4'>
+            {props.children}
+          </Sheet.Body>
         </Sheet.Content>
       </Sheet>
     )
@@ -168,7 +170,7 @@ const NavbarNav = ({
       className={navStyles({ isSticky, intent, className })}
       {...props}
     >
-      <div>{props.children}</div>
+      <div className='justify-between'>{props.children}</div>
     </div>
   )
 }
@@ -275,7 +277,7 @@ const NavbarLogo = ({ className, ...props }: LinkProps) => {
     <Link
       className={composeTailwindRenderProps(
         className,
-        'relative flex items-center gap-x-2 px-2 py-4 text-fg focus:outline-hidden focus-visible:outline-1 focus-visible:outline-primary md:mr-4 md:px-0 md:py-0'
+        'relative flex items-center gap-x-2 px-2 py-4 text-fg focus:outline-hidden focus-visible:outline-1 focus-visible:outline-primary md:px-0 md:py-0'
       )}
       {...props}
     />
@@ -310,7 +312,7 @@ const NavbarCompact = ({ className, ref, ...props }: NavbarCompactProps) => {
         'flex justify-between bg-navbar text-navbar-fg peer-has-[[data-navbar-intent=floating]]:border md:hidden',
         intent === 'floating' && 'h-12 rounded-lg border px-3.5',
         intent === 'inset' && 'h-14 border-b px-4',
-        intent === 'navbar' && 'h-14 border-b px-4',
+        intent === 'navbar' && 'h-14 px-4',
         className
       )}
       {...props}

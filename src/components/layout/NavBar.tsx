@@ -1,7 +1,7 @@
 'use client'
 
 import { IconChevronLgDown } from '@intentui/icons'
-import { buttonStyles, Link, Menu, Navbar } from 'ui'
+import { buttonStyles, Link, Menu, Navbar, Separator } from 'ui'
 
 import logoImg from '@images/logo.webp'
 
@@ -18,7 +18,6 @@ export const NavBar = (props: React.ComponentProps<typeof Navbar>) => {
           />
         </Navbar.Logo>
         <Navbar.Section>
-          <Navbar.Item href='/'>Home</Navbar.Item>
           <Navbar.Item href='/about'>About</Navbar.Item>
           <Menu>
             <Navbar.Item>
@@ -35,13 +34,19 @@ export const NavBar = (props: React.ComponentProps<typeof Navbar>) => {
           <Navbar.Item href='/news' isDisabled>
             News
           </Navbar.Item>
+          <Navbar.Item isDisabled className='md:hidden'>
+            <Separator className='my-3' orientation='horizontal' />
+          </Navbar.Item>
+          <Navbar.Item className='md:hidden' href='/contact'>
+            Get in touch
+          </Navbar.Item>
         </Navbar.Section>
 
-        <Navbar.Section className='ml-auto hidden md:flex'>
+        <Navbar.Section className='hidden md:flex'>
           <Navbar.Flex className='sm:gap-x-1'>
             <Link
               aria-label='Contact'
-              className={buttonStyles({ size: 'small', intent: 'secondary' })}
+              className={buttonStyles({ size: 'small', intent: 'plain' })}
               href='/contact'
             >
               <span className='font-semibold'>Get in touch</span>
@@ -52,7 +57,6 @@ export const NavBar = (props: React.ComponentProps<typeof Navbar>) => {
 
       <Navbar.Compact>
         <Navbar.Flex>
-          <Navbar.Trigger className='-ml-2' />
           <Navbar.Logo aria-label='Go to homepage' href='/'>
             <img
               loading='eager'
@@ -63,15 +67,7 @@ export const NavBar = (props: React.ComponentProps<typeof Navbar>) => {
           </Navbar.Logo>
         </Navbar.Flex>
         <Navbar.Flex>
-          <Navbar.Flex>
-            <Link
-              aria-label='Contact'
-              className={buttonStyles({ size: 'small', intent: 'secondary' })}
-              href='/contact'
-            >
-              <span className='font-semibold'>Get in touch</span>
-            </Link>
-          </Navbar.Flex>
+          <Navbar.Trigger className='-mr-2' />
         </Navbar.Flex>
       </Navbar.Compact>
     </Navbar>
