@@ -60,7 +60,7 @@ const TeamCards = () => {
   return (
     <div className='grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-6'>
       {team.map(member => (
-        <Card>
+        <Card key={member.id}>
           <Card.Header>
             <Card.Title className='text-2xl font-serif md:text-3xl'>
               {member.name}
