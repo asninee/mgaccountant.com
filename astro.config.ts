@@ -1,3 +1,4 @@
+import db from '@astrojs/db'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import tailwindcss from '@tailwindcss/vite'
@@ -10,5 +11,5 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  integrations: [react(), icon(), sitemap()],
+  integrations: [react(), icon(), sitemap(), db()],
 })

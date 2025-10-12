@@ -29,11 +29,11 @@ const values = [
             >
               {column.map(value => (
                 <li class='text-white'>
-                  <span class='md:text-xl font-semibold p-2 odd:bg-sky-700 even:bg-lime-600 rounded-t-md'>
+                  <span class='rounded-t-md p-2 font-semibold odd:bg-sky-700 even:bg-lime-600 md:text-xl'>
                     {value.name}
                   </span>
-                  <div class='flex flex-col gap-6 rounded-xl p-4 bg-black'>
-                    <p class='font-medium md:text-xl p-2'>
+                  <div class='flex flex-col gap-6 rounded-xl bg-black p-4'>
+                    <p class='p-2 font-medium md:text-xl'>
                       {value.description}
                     </p>
                   </div>

@@ -1,76 +1,82 @@
 'use client'
 
 import { IconChevronLgDown } from '@intentui/icons'
-import { buttonStyles, Link, Menu, Navbar, Separator } from 'ui'
+import {
+  Link,
+  Menu,
+  MenuContent,
+  MenuItem,
+  Navbar,
+  NavbarItem,
+  NavbarMobile,
+  NavbarProvider,
+  NavbarSection,
+  NavbarSpacer,
+  NavbarStart,
+  NavbarTrigger,
+  Separator,
+} from 'ui'
 
 import logoImg from '@images/logo.webp'
 
 export const NavBar = (props: React.ComponentProps<typeof Navbar>) => {
   return (
-    <Navbar {...props}>
-      <Navbar.Nav>
-        <Navbar.Logo aria-label='Go to homepage' href='/'>
-          <img
-            loading='eager'
-            src={logoImg.src}
-            alt='mgaccountant logo'
-            className='h-10 w-auto'
-          />
-        </Navbar.Logo>
-        <Navbar.Section>
-          <Navbar.Item href='/about'>About</Navbar.Item>
-          <Menu>
-            <Navbar.Item>
-              Services <IconChevronLgDown data-slot='chevron' />
-            </Navbar.Item>
-            <Menu.Content items={categories} className='font-semibold'>
-              {item => (
-                <Menu.Item id={item.id} textValue={item.label} href={item.url}>
-                  {item.label}
-                </Menu.Item>
-              )}
-            </Menu.Content>
-          </Menu>
-          <Navbar.Item href='/news' isDisabled>
-            News
-          </Navbar.Item>
-          <Navbar.Item isDisabled className='md:hidden'>
-            <Separator className='my-3' orientation='horizontal' />
-          </Navbar.Item>
-          <Navbar.Item className='md:hidden' href='/contact'>
-            Get in touch
-          </Navbar.Item>
-        </Navbar.Section>
-
-        <Navbar.Section className='hidden md:flex'>
-          <Navbar.Flex className='sm:gap-x-1'>
-            <Link
-              aria-label='Contact'
-              className={buttonStyles({ size: 'small', intent: 'plain' })}
-              href='/contact'
-            >
-              <span className='font-semibold'>Get in touch</span>
-            </Link>
-          </Navbar.Flex>
-        </Navbar.Section>
-      </Navbar.Nav>
-
-      <Navbar.Compact>
-        <Navbar.Flex>
-          <Navbar.Logo aria-label='Go to homepage' href='/'>
+    <NavbarProvider>
+      <Navbar {...props}>
+        <NavbarStart>
+          <Link aria-label='Go to homepage' href='/' className='font-medium'>
             <img
               loading='eager'
               src={logoImg.src}
               alt='mgaccountant logo'
               className='h-10 w-auto'
             />
-          </Navbar.Logo>
-        </Navbar.Flex>
-        <Navbar.Flex>
-          <Navbar.Trigger className='-mr-2' />
-        </Navbar.Flex>
-      </Navbar.Compact>
-    </Navbar>
+          </Link>
+        </NavbarStart>
+        <NavbarSpacer className='hidden md:block' />
+        <NavbarSection>
+          <NavbarItem href='/about'>About</NavbarItem>
+          <Menu>
+            <NavbarItem>
+              Services
+              <IconChevronLgDown className='col-start-2' />
+            </NavbarItem>
+            <MenuContent items={categories} className='font-semibold'>
+              {item => (
+                <MenuItem id={item.id} textValue={item.label} href={item.url}>
+                  {item.label}
+                </MenuItem>
+              )}
+            </MenuContent>
+          </Menu>
+          <NavbarItem isDisabled href='/news'>
+            News
+          </NavbarItem>
+          <NavbarItem isDisabled className='md:hidden'>
+            <Separator className='my-3' orientation='horizontal' />
+          </NavbarItem>
+        </NavbarSection>
+        <NavbarSpacer className='hidden md:block' />
+        <NavbarSection>
+          <NavbarItem href='/contact' className='sm:gap-x-1'>
+            Get in touch
+          </NavbarItem>
+        </NavbarSection>
+      </Navbar>
+
+      <NavbarMobile>
+        <Link aria-label='Go to homepage' href='/'>
+          <img
+            loading='eager'
+            src={logoImg.src}
+            alt='mgaccountant logo'
+            className='h-10 w-auto'
+          />
+        </Link>
+        <NavbarSpacer />
+        <NavbarTrigger />
+      </NavbarMobile>
+    </NavbarProvider>
   )
 }
 

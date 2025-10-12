@@ -1,27 +1,10 @@
-import {
-  TextArea as TextAreaPrimitive,
-  TextField as TextFieldPrimitive,
-  type TextFieldProps as TextFieldPrimitiveProps,
-  type ValidationResult,
-  composeRenderProps,
-} from 'react-aria-components'
-import { tv } from 'tailwind-variants'
+import { cx } from '@lib/primitive'
+import { TextArea, TextField, type TextFieldProps } from 'react-aria-components'
+import { twJoin } from 'tailwind-merge'
+import { Description, FieldError, type FieldProps, Label } from './field'
 
-import { Description, FieldError, Label } from './field'
-import { composeTailwindRenderProps, focusStyles } from './primitive'
-
-const textareaStyles = tv({
-  extend: focusStyles,
-  base: 'field-sizing-content max-h-96 min-h-24 w-full min-w-0 rounded-lg border border-input px-2.5 py-2 text-base shadow-xs outline-hidden transition duration-200 disabled:opacity-50 sm:text-sm',
-})
-
-interface TextareaProps extends TextFieldPrimitiveProps {
-  autoSize?: boolean
-  label?: string
-  placeholder?: string
-  description?: string
-  errorMessage?: string | ((validation: ValidationResult) => string)
-  className?: string
+interface TextareaProps extends Omit<TextFieldProps, 'className'>, FieldProps {
+  className?: string | ((v: TextFieldProps) => string)
 }
 
 const Textarea = ({
@@ -33,26 +16,28 @@ const Textarea = ({
   ...props
 }: TextareaProps) => {
   return (
-    <TextFieldPrimitive
+    <TextField
       {...props}
-      className={composeTailwindRenderProps(
-        className,
-        'group flex flex-col gap-y-1.5'
+      className={cx(
+        'group flex flex-col gap-y-1 *:data-[slot=label]:font-medium',
+        className
       )}
     >
       {label && <Label>{label}</Label>}
-      <TextAreaPrimitive
+      <TextArea
         placeholder={placeholder}
-        className={composeRenderProps(className, (className, renderProps) =>
-          textareaStyles({
-            ...renderProps,
-            className,
-          })
+        className={cx(
+          twJoin([
+            'border-input placeholder-muted-fg field-sizing-content max-h-96 min-h-16 w-full min-w-0 rounded-lg border px-2.5 py-2 text-base shadow-xs outline-hidden transition duration-200 sm:text-sm/6',
+            'focus:border-ring/70 focus:ring-ring/20 focus:ring-3',
+            'focus:invalid:border-danger/70 focus:invalid:ring-danger/20 focus:invalid:ring-3',
+          ]),
+          className
         )}
       />
       {description && <Description>{description}</Description>}
       <FieldError>{errorMessage}</FieldError>
-    </TextFieldPrimitive>
+    </TextField>
   )
 }
 

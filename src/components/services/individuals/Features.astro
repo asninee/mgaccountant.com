@@ -49,16 +49,16 @@ const features = [
         {
           features.map(feature => (
             <div>
-              <div class='flex flex-col gap-6 rounded-lg p-8 bg-neutral-100'>
-                <h2 class='text-lg sm:text-xl md:text-2xl font-semibold'>
-                  <span class='bg-lime-500 text-sky-700 p-2 -mx-2 rounded-md'>
+              <div class='flex flex-col gap-6 rounded-lg bg-neutral-100 p-8'>
+                <h2 class='text-lg font-semibold sm:text-xl md:text-2xl'>
+                  <span class='-mx-2 rounded-md bg-lime-500 p-2 text-sky-700'>
                     {feature.name}
                   </span>
                 </h2>
-                <p class=' text-justify '>
+                <p class='text-justify'>
                   {feature.description}
                   {feature.children && (
-                    <ul class='list-disc pl-4 flex flex-col gap-1'>
+                    <ul class='flex list-disc flex-col gap-1 pl-4'>
                       {feature.children.map(child => (
                         <li class=''>{child.text}</li>
                       ))}

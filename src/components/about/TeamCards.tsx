@@ -62,16 +62,16 @@ const TeamCards = () => {
       {team.map(member => (
         <Card key={member.id}>
           <Card.Header>
-            <Card.Title className='text-2xl font-serif md:text-3xl'>
+            <Card.Title className='font-serif text-2xl md:text-3xl'>
               {member.name}
             </Card.Title>
             <Card.Description className='flex flex-col gap-4'>
-              <span className='text-2xl font-serif md:text-3xl italic'>
+              <span className='font-serif text-2xl italic md:text-3xl'>
                 {member.role}
               </span>
               <a
                 href={`mailto:${member.email}`}
-                className='focus-visible:outline-neutral-950 font-semibold sm:text-md inline-flex items-center gap-1 rounded-md hover:underline focus-visible:outline-2'
+                className='sm:text-md inline-flex items-center gap-1 rounded-md font-semibold hover:underline focus-visible:outline-2 focus-visible:outline-neutral-950'
               >
                 {member.email}
               </a>

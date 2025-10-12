@@ -65,23 +65,23 @@ const values = [
     <h2 class='text-3xl sm:text-4xl md:text-5xl'>Our Values</h2>
 
     <div class='pt-8 md:pt-12'>
-      <ul role='list' class='grid grid-cols-1 xl:grid-cols-3 gap-12'>
+      <ul role='list' class='grid grid-cols-1 gap-12 xl:grid-cols-3'>
         {
           values.map((item, index) => (
             <div class='flex gap-12'>
-              <ul role='list' class='flex items-center flex-col gap-2 max-w-12'>
+              <ul role='list' class='flex max-w-12 flex-col items-center gap-2'>
                 {item.slogans.map(slogan => (
-                  <li class='ml-6 p-1 odd:bg-sky-700 even:bg-lime-600 text-white text-sm font-semibold rounded-md'>
+                  <li class='ml-6 rounded-md p-1 text-sm font-semibold text-white odd:bg-sky-700 even:bg-lime-600'>
                     {slogan.name}.
                   </li>
                 ))}
               </ul>
               <div class='flex flex-col gap-5'>
                 <div class='flex items-center gap-2'>
-                  <p class='px-2.5 py-0.5 bg-black text-white rounded-full'>
+                  <p class='rounded-full bg-black px-2.5 py-0.5 text-white'>
                     {index + 1}
                   </p>
-                  <p class='text-2xl lg:text-3xl font-semibold'>{item.name}</p>
+                  <p class='text-2xl font-semibold lg:text-3xl'>{item.name}</p>
                 </div>
                 <div>
                   {

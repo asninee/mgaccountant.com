@@ -660,9 +660,9 @@ const categories = [
   <div class='mx-auto lg:max-w-7xl'>
     <!-- Comparison table -->
     <div>
-      <div class='text-center mb-16 lg:mb-20'>
+      <div class='mb-16 text-center lg:mb-20'>
         <h3 class='text-2xl font-semibold'>
-          <span class='px-6 py-3 text-white bg-lime-600 rounded-2xl'
+          <span class='rounded-2xl bg-lime-600 px-6 py-3 text-white'
             >Limited Companies</span
           >
         </h3>
@@ -673,15 +673,15 @@ const categories = [
         {
           plans.map(plan => (
             <section>
-              <div class='px-4 mb-4'>
+              <div class='mb-4 px-4'>
                 <h2 class='text-lg leading-6 font-semibold text-gray-800'>
                   {plan.name}
                 </h2>
               </div>
               {plan.categories.map(category => (
                 <table class='w-full'>
-                  <caption class='pt-8 border-t border-gray-200 py-3 px-4 text-sm font-bold text-white text-start'>
-                    <span class='bg-sky-700 -mx-5 py-2 px-4 rounded-xl'>
+                  <caption class='border-t border-gray-200 px-4 py-3 pt-8 text-start text-sm font-bold text-white'>
+                    <span class='-mx-5 rounded-xl bg-sky-700 px-4 py-2'>
                       {category.name}
                     </span>
                   </caption>
@@ -699,7 +699,7 @@ const categories = [
                     {category.features.map(feature => (
                       <tr>
                         <th
-                          class='py-5 px-4 text-sm font-normal text-start whitespace-nowrap'
+                          class='px-4 py-5 text-start text-sm font-normal whitespace-nowrap'
                           scope='row'
                         >
                           {feature.name}
@@ -708,12 +708,12 @@ const categories = [
                           {feature.check ? (
                             <Icon
                               name='lucide:check'
-                              class='flex-shrink-0 ms-auto size-5'
+                              class='ms-auto size-5 flex-shrink-0'
                             />
                           ) : (
                             <Icon
                               name='lucide:minus'
-                              class='flex-shrink-0 ms-auto size-5 text-gray-400'
+                              class='ms-auto size-5 flex-shrink-0 text-gray-400'
                             />
                           )}
                         </td>
@@ -729,31 +729,31 @@ const categories = [
 
       <!-- lg+ -->
       <div class='hidden lg:block'>
-        <table class='w-full h-px'>
+        <table class='h-px w-full'>
           <caption class='sr-only'>Accounting plan comparison</caption>
-          <thead class='sticky top-0 inset-x-0 bg-white'>
+          <thead class='sticky inset-x-0 top-0 bg-white'>
             <tr>
               <th
-                class='py-4 ps-6 pe-6 text-sm font-semibold text-gray-800 text-start'
+                class='py-4 ps-6 pe-6 text-start text-sm font-semibold text-gray-800'
                 scope='col'
               >
                 <span class='sr-only'>Feature by</span>
               </th>
 
               <th
-                class='w-1/4 py-4 px-6 text-lg leading-6 font-semibold text-gray-800 text-center'
+                class='w-1/4 px-6 py-4 text-center text-lg leading-6 font-semibold text-gray-800'
                 scope='col'>The Starter (Basic Non-Trading Account)</th
               >
               <th
-                class='w-1/4 py-4 px-6 text-lg leading-6 font-semibold text-gray-800 text-center'
+                class='w-1/4 px-6 py-4 text-center text-lg leading-6 font-semibold text-gray-800'
                 scope='col'>The Starter</th
               >
               <th
-                class='w-1/4 py-4 px-6 text-lg leading-6 font-semibold text-gray-800 text-center'
+                class='w-1/4 px-6 py-4 text-center text-lg leading-6 font-semibold text-gray-800'
                 scope='col'>The Primary</th
               >
               <th
-                class='w-1/4 py-4 px-6 text-lg leading-6 font-semibold text-gray-800 text-center'
+                class='w-1/4 px-6 py-4 text-center text-lg leading-6 font-semibold text-gray-800'
                 scope='col'>The Works</th
               >
             </tr>
@@ -764,36 +764,36 @@ const categories = [
                 <>
                   <tr>
                     <th
-                      class='pt-8 pb-4 ps-6 font-bold text-white text-start'
+                      class='ps-6 pt-8 pb-4 text-start font-bold text-white'
                       colspan='5'
                       scope='colgroup'
                     >
-                      <span class='bg-sky-700 -mx-6 py-2 px-4 rounded-xl'>
+                      <span class='-mx-6 rounded-xl bg-sky-700 px-4 py-2'>
                         {category.name}
                       </span>
                     </th>
                   </tr>
                   <>
                     {category.rows.map(row => (
-                      <tr class='border-b border-gray-200 '>
+                      <tr class='border-b border-gray-200'>
                         <th
-                          class='py-5 ps-6 pe-6 text-sm font-normal text-gray-600 text-start whitespace-nowrap'
+                          class='py-5 ps-6 pe-6 text-start text-sm font-normal whitespace-nowrap text-gray-600'
                           scope='row'
                         >
                           {row.name}
                         </th>
 
                         {row.data.map(entry => (
-                          <td class='py-5 px-6'>
+                          <td class='px-6 py-5'>
                             {entry.check ? (
                               <Icon
                                 name='lucide:check'
-                                class='flex-shrink-0 mx-auto size-5'
+                                class='mx-auto size-5 flex-shrink-0'
                               />
                             ) : (
                               <Icon
                                 name='lucide:minus'
-                                class='flex-shrink-0 mx-auto size-5 text-gray-400'
+                                class='mx-auto size-5 flex-shrink-0 text-gray-400'
                               />
                             )}
                           </td>

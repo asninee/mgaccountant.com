@@ -15,9 +15,9 @@ const services = [
 ]
 ---
 
-<section class='py-10 sm:py-14 mx-auto'>
+<section class='mx-auto py-10 sm:py-14'>
   <div class='flex flex-col items-center gap-12 sm:gap-16'>
-    <div class='grid gap-2 md:gap-6 lg:gap-24 md:grid-cols-2'>
+    <div class='grid gap-2 md:grid-cols-2 md:gap-6 lg:gap-24'>
       {
         services.map(service =>
           service.name.includes('individuals') ? (
@@ -30,7 +30,7 @@ const services = [
                     </Card.Title>
                   </Card.Header>
                   <Card.Content>
-                    <p class='font-semibold sm:text-lg md:text-xl md:mt-4'>
+                    <p class='font-semibold sm:text-lg md:mt-4 md:text-xl'>
                       {service.description}
                     </p>
                   </Card.Content>
@@ -47,7 +47,7 @@ const services = [
                     </Card.Title>
                   </Card.Header>
                   <Card.Content>
-                    <p class='font-semibold sm:text-lg md:text-xl md:mt-4'>
+                    <p class='font-semibold sm:text-lg md:mt-4 md:text-xl'>
                       {service.description}
                     </p>
                   </Card.Content>

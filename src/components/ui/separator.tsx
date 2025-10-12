@@ -1,20 +1,20 @@
 import {
   Separator as Divider,
-  type SeparatorProps as DividerProps,
+  type SeparatorProps,
 } from 'react-aria-components'
 import { twMerge } from 'tailwind-merge'
 
-interface SeparatorProps extends DividerProps {
-  className?: string
-}
-
-const Separator = ({ className, ...props }: SeparatorProps) => {
+const Separator = ({
+  orientation = 'horizontal',
+  className,
+  ...props
+}: SeparatorProps) => {
   return (
     <Divider
       {...props}
       className={twMerge(
-        'shrink-0 bg-border forced-colors:bg-[ButtonBorder]',
-        props.orientation === 'horizontal' ? 'h-px w-full' : 'w-px',
+        'bg-border shrink-0 forced-colors:bg-[ButtonBorder]',
+        orientation === 'horizontal' ? 'h-px w-full' : 'h-full w-px',
         className
       )}
     />

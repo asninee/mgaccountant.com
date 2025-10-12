@@ -57,8 +57,8 @@ const categories = [
             <section>
               {plan.categories.map(category => (
                 <table class='w-full'>
-                  <caption class='pt-8 border-t border-gray-200 py-3 px-4 text-sm font-bold text-white text-start'>
-                    <span class='bg-lime-600 -mx-5 py-2 px-4 rounded-xl'>
+                  <caption class='border-t border-gray-200 px-4 py-3 pt-8 text-start text-sm font-bold text-white'>
+                    <span class='-mx-5 rounded-xl bg-lime-600 px-4 py-2'>
                       {category.name}
                     </span>
                   </caption>
@@ -76,7 +76,7 @@ const categories = [
                     {category.features.map(feature => (
                       <tr>
                         <th
-                          class='py-5 px-4 text-sm font-normal text-start whitespace-nowrap'
+                          class='px-4 py-5 text-start text-sm font-normal whitespace-nowrap'
                           scope='row'
                         >
                           {feature.name}
@@ -85,12 +85,12 @@ const categories = [
                           {feature.check ? (
                             <Icon
                               name='lucide:check'
-                              class='flex-shrink-0 ms-auto size-5'
+                              class='ms-auto size-5 flex-shrink-0'
                             />
                           ) : (
                             <Icon
                               name='lucide:minus'
-                              class='flex-shrink-0 ms-auto size-5 text-gray-400'
+                              class='ms-auto size-5 flex-shrink-0 text-gray-400'
                             />
                           )}
                         </td>
@@ -106,7 +106,7 @@ const categories = [
 
       <!-- lg+ -->
       <div class='hidden lg:block'>
-        <table class='w-full h-px'>
+        <table class='h-px w-full'>
           <caption class='sr-only'>Accounting plan comparison</caption>
           <tbody class='border-t border-gray-200'>
             {
@@ -114,36 +114,36 @@ const categories = [
                 <>
                   <tr>
                     <th
-                      class='pt-8 pb-4 ps-6 font-bold text-white text-start'
+                      class='ps-6 pt-8 pb-4 text-start font-bold text-white'
                       colspan='5'
                       scope='colgroup'
                     >
-                      <span class='bg-lime-600 -mx-6 py-2 px-4 rounded-xl'>
+                      <span class='-mx-6 rounded-xl bg-lime-600 px-4 py-2'>
                         {category.name}
                       </span>
                     </th>
                   </tr>
                   <>
                     {category.rows.map(row => (
-                      <tr class='border-b border-gray-200 '>
+                      <tr class='border-b border-gray-200'>
                         <th
-                          class='py-5 ps-6 pe-6 text-sm font-normal text-gray-600 text-start whitespace-nowrap'
+                          class='py-5 ps-6 pe-6 text-start text-sm font-normal whitespace-nowrap text-gray-600'
                           scope='row'
                         >
                           {row.name}
                         </th>
 
                         {row.data.map(entry => (
-                          <td class='py-5 px-6'>
+                          <td class='px-6 py-5'>
                             {entry.check ? (
                               <Icon
                                 name='lucide:check'
-                                class='flex-shrink-0 mx-auto size-5'
+                                class='mx-auto size-5 flex-shrink-0'
                               />
                             ) : (
                               <Icon
                                 name='lucide:minus'
-                                class='flex-shrink-0 mx-auto size-5 text-gray-400'
+                                class='mx-auto size-5 flex-shrink-0 text-gray-400'
                               />
                             )}
                           </td>

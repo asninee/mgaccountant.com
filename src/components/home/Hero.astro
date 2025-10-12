@@ -1,11 +1,11 @@
 ---
-import { buttonStyles } from "ui";
+import { buttonStyles } from 'ui'
 ---
 
-<section class='py-4 sm:py-6 mx-auto lg:max-w-7xl'>
-  <div class='bg-black rounded-2xl flex flex-col gap-8 sm:gap-10'>
-    <div class='p-4 sm:p-6 flex flex-col items-start gap-8 sm:gap-12'>
-      <div class='flex flex-col items-start gap-10 sm:gap-14 text-white'>
+<section class='mx-auto py-4 sm:py-6 lg:max-w-7xl'>
+  <div class='flex flex-col gap-8 rounded-2xl bg-black sm:gap-10'>
+    <div class='flex flex-col items-start gap-8 p-4 sm:gap-12 sm:p-6'>
+      <div class='flex flex-col items-start gap-10 text-white sm:gap-14'>
         <h1 class='max-w-3xl text-4xl sm:text-5xl md:text-6xl'>
           Bringing <strong class='text-lime-600'>order</strong> to the chaos no matter
           what life is throwing <strong class='text-sky-700'>at you.</strong>
@@ -17,9 +17,9 @@ import { buttonStyles } from "ui";
           <strong class='text-lime-600'>deliver.</strong>
         </p>
       </div>
-      <a href='/about' class={buttonStyles({ size: 'medium' })}>
+      <a href='/about' class={buttonStyles({ size: 'md' })}>
         <div class='flex items-center'>
-          <span class='sm:text-lg font-semibold'>About us</span>
+          <span class='font-semibold sm:text-lg'>About us</span>
         </div>
       </a>
     </div>

@@ -38,18 +38,18 @@ const ContactForm = () => {
         <Card.Content className='md:pt-6'>
           <div className='flex flex-col gap-8'>
             <div className='flex flex-wrap gap-6'>
-              <div className='flex flex-col space-y-2 grow'>
+              <div className='flex grow flex-col space-y-2'>
                 <TextField label='First name' name='firstName' isRequired />
               </div>
-              <div className='flex flex-col space-y-2 grow'>
+              <div className='flex grow flex-col space-y-2'>
                 <TextField label='Last name' name='lastName' isRequired />
               </div>
             </div>
             <div className='flex flex-wrap gap-6'>
-              <div className='flex flex-col space-y-2 grow'>
+              <div className='flex grow flex-col space-y-2'>
                 <TextField label='Email' type='email' name='email' isRequired />
               </div>
-              <div className='flex flex-col space-y-2 grow'>
+              <div className='flex grow flex-col space-y-2'>
                 <TextField label='Company' name='companyName' />
               </div>
             </div>
@@ -67,7 +67,7 @@ const ContactForm = () => {
           </div>
         </Card.Content>
         <Card.Footer className='md:pb-6'>
-          <Button type='submit' className='font-semibold w-full'>
+          <Button type='submit' className='w-full font-semibold'>
             Let's talk
           </Button>
           <div id='result'></div>

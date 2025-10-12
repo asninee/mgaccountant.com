@@ -1,39 +1,28 @@
-import { useState } from 'react'
+'use client'
 
 import { IconEye, IconEyeClosed } from '@intentui/icons'
+import { cx } from '@lib/primitive'
+import { useState } from 'react'
 import type {
   InputProps,
   TextFieldProps as TextFieldPrimitiveProps,
 } from 'react-aria-components'
-import {
-  Button as ButtonPrimitive,
-  TextField as TextFieldPrimitive,
-} from 'react-aria-components'
+import { TextField as TextFieldPrimitive } from 'react-aria-components'
 import type { FieldProps } from './field'
 import { Description, FieldError, FieldGroup, Input, Label } from './field'
 import { Loader } from './loader'
-import { composeTailwindRenderProps } from './primitive'
 
 type InputType = Exclude<InputProps['type'], 'password'>
 
 interface BaseTextFieldProps extends TextFieldPrimitiveProps, FieldProps {
-  prefix?: React.ReactNode
-  suffix?: React.ReactNode
+  prefix?: React.ReactNode | string
+  suffix?: React.ReactNode | string
   isPending?: boolean
-  className?: string
 }
 
-interface RevealableTextFieldProps extends BaseTextFieldProps {
-  isRevealable: true
-  type: 'password'
-}
-
-interface NonRevealableTextFieldProps extends BaseTextFieldProps {
-  isRevealable?: never
-  type?: InputType
-}
-
-type TextFieldProps = RevealableTextFieldProps | NonRevealableTextFieldProps
+type TextFieldProps =
+  | (BaseTextFieldProps & { isRevealable: true; type: 'password' })
+  | (BaseTextFieldProps & { isRevealable?: never; type?: InputType })
 
 const TextField = ({
   placeholder,
@@ -61,9 +50,9 @@ const TextField = ({
     <TextFieldPrimitive
       type={inputType}
       {...props}
-      className={composeTailwindRenderProps(
-        className,
-        'group flex flex-col gap-y-1'
+      className={cx(
+        'group flex flex-col gap-y-1 *:data-[slot=label]:font-medium',
+        className
       )}
     >
       {!props.children ? (
@@ -72,28 +61,30 @@ const TextField = ({
           <FieldGroup
             isDisabled={props.isDisabled}
             isInvalid={!!errorMessage}
+            className={isRevealable && 'pr-9'}
             data-loading={isPending ? 'true' : undefined}
           >
             {prefix && typeof prefix === 'string' ? (
-              <span className='ml-2 text-muted-fg'>{prefix}</span>
+              <span className='text-muted-fg pl-2'>{prefix}</span>
             ) : (
               prefix
             )}
             <Input placeholder={placeholder} />
             {isRevealable ? (
-              <ButtonPrimitive
+              <button
                 type='button'
+                tabIndex={-1}
                 aria-label='Toggle password visibility'
-                onPress={handleTogglePasswordVisibility}
-                className='relative mr-1 grid shrink-0 place-content-center rounded-sm border-transparent outline-hidden *:data-[slot=icon]:text-muted-fg focus-visible:*:data-[slot=icon]:text-primary'
+                onClick={handleTogglePasswordVisibility}
+                className='*:data-[slot=icon]:text-muted-fg focus-visible:*:data-[slot=icon]:text-primary relative mr-0.5 grid shrink-0 place-content-center rounded-sm border-transparent outline-hidden'
               >
                 {isPasswordVisible ? <IconEyeClosed /> : <IconEye />}
-              </ButtonPrimitive>
+              </button>
             ) : isPending ? (
               <Loader variant='spin' />
             ) : suffix ? (
               typeof suffix === 'string' ? (
-                <span className='mr-2 text-muted-fg'>{suffix}</span>
+                <span className='text-muted-fg mr-2'>{suffix}</span>
               ) : (
                 suffix
               )
