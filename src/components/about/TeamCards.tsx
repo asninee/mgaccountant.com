@@ -1,6 +1,5 @@
 'use client'
 
-import { useMediaQuery } from '@lib/utils'
 import { Card } from 'ui'
 
 const team = [
@@ -55,8 +54,6 @@ const team = [
 ]
 
 const TeamCards = () => {
-  const isMobile = useMediaQuery('(max-width: 768px)')
-
   return (
     <div className='grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-6'>
       {team.map(member => (
