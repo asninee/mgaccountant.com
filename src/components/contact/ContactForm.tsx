@@ -1,34 +1,46 @@
 'use client'
 
+import { useState } from 'react'
+import HCaptcha from '@hcaptcha/react-hcaptcha'
 import { toast } from 'sonner'
 import { Button, Card, TextField, Textarea } from 'ui'
 
 const accessKey = import.meta.env.PUBLIC_W3FORMS_KEY
+const hCaptchaSiteKey = import.meta.env.PUBLIC_HCAPTCHA_SITE_KEY
 
 const ContactForm = () => {
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null)
+
+  const handleHCaptchaChange = (token: string) => {
+    setCaptchaToken(token)
+  }
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    const data = new FormData(e.currentTarget)
     e.preventDefault()
 
-    const object = Object.fromEntries(data)
-    const json = JSON.stringify(object)
+    if (!captchaToken) {
+      toast.error('Please complete the captcha verification')
+      return
+    }
 
-    const promise = fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-      body: json,
-    })
+    const formData = new FormData(e.currentTarget)
+    const json = JSON.stringify(Object.fromEntries(formData))
 
-    toast.promise(promise, {
-      loading: 'Sending...',
-      success: () => {
-        return 'Email was sent successfully!'
-      },
-      error: 'Something went wrong!',
-    })
+    toast.promise(
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: json,
+      }),
+      {
+        loading: 'Sending...',
+        success: 'Email was sent successfully!',
+        error: 'Something went wrong!',
+      }
+    )
   }
 
   return (
@@ -64,6 +76,11 @@ const ContactForm = () => {
             <div className='flex flex-col space-y-2'>
               <Textarea label='Message' name='message' isRequired />
             </div>
+            <HCaptcha
+              sitekey={hCaptchaSiteKey}
+              onVerify={handleHCaptchaChange}
+              reCaptchaCompat={false}
+            />
           </div>
         </Card.Content>
         <Card.Footer className='md:pb-6'>

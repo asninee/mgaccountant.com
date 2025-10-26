@@ -20,6 +20,7 @@
     "@astrojs/db": "0.18.1",
     "@astrojs/react": "4.4.0",
     "@astrojs/sitemap": "3.6.0",
+    "@hcaptcha/react-hcaptcha": "^1.14.0",
     "@iconify-json/lucide": "^1.2.71",
     "@intentui/icons": "^1.11.0",
     "@tailwindcss/vite": "^4.1.16",
