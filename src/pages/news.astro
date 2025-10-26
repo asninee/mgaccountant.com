@@ -1,0 +1,44 @@
+---
+import Base from '@layouts/Base.astro'
+import { getRelativeTimeString } from '@lib/utils'
+import { FeedItem, db, desc } from 'astro:db'
+
+const feeds = await db.select().from(FeedItem).orderBy(desc(FeedItem.updated))
+---
+
+<Base
+  description='Find out more about our values, mission and more.'
+  title='News · mgaccountant'
+>
+  <div class='mx-auto py-4 sm:py-6 lg:max-w-7xl'>
+    <section>
+      <div class='flex gap-8 rounded-2xl bg-black sm:gap-10'>
+        <div class='flex flex-col items-start gap-8 p-4 sm:gap-12 sm:p-6'>
+          <div class='flex flex-col items-start gap-10 text-white sm:gap-14'>
+            <h1 class='text-4xl sm:text-5xl md:text-6xl'>
+              News
+            </h1>
+        </div>
+    </section>
+    <div class='py-16 sm:py-20 space-y-4'>
+      {
+        feeds.map(item => (
+          <a
+            href={item.url}
+            target='_blank'
+            rel='noopener noreferrer'
+            class='flex flex-col gap-2 rounded-lg border border-gray-200 p-4 hover:border-gray-500'
+          >
+            <span class="font-bold">{item.title}</span>
+            <div>
+              {item.description}
+            </div>
+            <time class='block text-sm text-gray-500'>
+              {getRelativeTimeString(new Date(item.updated))}
+            </time>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</Base>

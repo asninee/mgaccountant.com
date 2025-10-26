@@ -49,7 +49,7 @@ export const NavBar = (props: React.ComponentProps<typeof Navbar>) => {
               )}
             </MenuContent>
           </Menu>
-          <NavbarItem isDisabled href='/news'>
+          <NavbarItem href='/news'>
             News
           </NavbarItem>
           <NavbarItem isDisabled className='md:hidden'>
