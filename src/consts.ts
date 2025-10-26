@@ -1,13 +1,6 @@
 export const FEEDS = [
-  'https://www.accountingweb.co.uk/rss',
-  'https://www.icaew.com/rss',
-  'https://www.accountancytoday.co.uk/feed',
-  'https://www.accountex.co.uk/insight/feed',
-  'https://www.bdo.co.uk/en-gb/rss-feeds',
-  'https://www.bankofengland.co.uk/rss',
-  'https://sg-accounting.co.uk/feed',
-  'https://swindellsaccounting.co.uk/feed',
-  'https://pkf-francisclark.co.uk/feed',
-  'https://danbro.co.uk/blog/feed',
-  'https://www.freeagent.com/blog/feed.rss',
+  'https://www.resolutionfoundation.org/press-releases/feed/',
+  'https://www.gov.uk/search/news-and-communications.atom?level_one_taxon=e48ab80a-de80-4e83-bf59-26316856a5f9&order=updated-newest',
+  'https://www.gov.uk/search/news-and-communications.atom?level_one_taxon=ba951b09-5146-43be-87af-44075eac3ae9&order=updated-newest',
+  'https://www.britishchambers.org.uk/news/category/insights/feed/'
 ]
