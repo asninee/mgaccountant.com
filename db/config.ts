@@ -21,22 +21,7 @@ const FeedItem = defineTable({
   },
 })
 
-const Author = defineTable({
-  columns: {
-    feedId: column.number({ references: () => Feed.columns.id }),
-    name: column.text(),
-  },
-})
-
-const Image = defineTable({
-  columns: {
-    feedId: column.number({ references: () => Feed.columns.id }),
-    url: column.text(),
-    alt: column.text(),
-  },
-})
-
 // https://astro.build/db/config
 export default defineDb({
-  tables: { Feed, FeedItem, Author, Image },
+  tables: { Feed, FeedItem },
 })
